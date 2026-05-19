@@ -6,6 +6,7 @@ import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { FAQ } from "@/components/FAQ";
 import { WhoRunsStrata } from "@/components/WhoRunsStrata";
 import { HomeIntake } from "@/components/HomeIntake";
+import { SampleUnderwrite } from "@/components/SampleUnderwrite";
 
 const problems = [
   {
@@ -140,6 +141,9 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustBar />
+
+      {/* Sample STR Underwrite — proof block */}
+      <SampleUnderwrite />
 
       {/* Problem — editorial split */}
       <section className="bg-ivory">
