@@ -16,7 +16,7 @@ const tagMap = {
   span: motion.span,
 } as const;
 
-const viewport = { once: true, amount: 0.25 } as const;
+const viewport = { once: true, amount: 0.2 } as const;
 
 /* ----------------------------------------------------------------------- */
 
@@ -24,8 +24,8 @@ export function FadeIn({
   children,
   className = "",
   delay = 0,
-  y = 16,
-  duration = 0.55,
+  y = 32,
+  duration = 0.7,
   start = "view",
   as = "div",
 }: {
@@ -38,12 +38,14 @@ export function FadeIn({
   as?: Tag;
 }) {
   const MotionTag = tagMap[as];
+  const hidden = { opacity: 0, y, scale: 0.985 };
+  const shown = { opacity: 1, y: 0, scale: 1 };
   const motionProps =
     start === "mount"
-      ? { initial: { opacity: 0, y }, animate: { opacity: 1, y: 0 } }
+      ? { initial: hidden, animate: shown }
       : {
-          initial: { opacity: 0, y },
-          whileInView: { opacity: 1, y: 0 },
+          initial: hidden,
+          whileInView: shown,
           viewport,
         };
 
@@ -64,8 +66,8 @@ export function Stagger({
   children,
   className = "",
   start = "view",
-  stagger = 0.08,
-  delayChildren = 0.04,
+  stagger = 0.1,
+  delayChildren = 0.05,
   as = "div",
 }: {
   children: ReactNode;
@@ -99,8 +101,13 @@ export function Stagger({
 }
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  hidden: { opacity: 0, y: 26, scale: 0.985 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.62, ease: EASE },
+  },
 };
 
 export function StaggerItem({
