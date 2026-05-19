@@ -50,7 +50,7 @@ function Ledger({
 export function SampleUnderwrite() {
   return (
     <section className="bg-ivory">
-      <div className="container-wide py-24 md:py-32">
+      <div className="container-wide pt-24 pb-28 md:pt-32 md:pb-40">
         <div className="grid gap-14 md:grid-cols-12 md:gap-12">
           {/* Left — framing */}
           <div className="md:col-span-5 md:sticky md:top-28 md:self-start">

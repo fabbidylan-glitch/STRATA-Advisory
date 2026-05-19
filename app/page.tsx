@@ -146,7 +146,7 @@ export default function HomePage() {
       <SampleUnderwrite />
 
       {/* Problem — editorial split */}
-      <section className="bg-ivory">
+      <section className="border-t border-gold/20 bg-white">
         <div className="container-wide py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
