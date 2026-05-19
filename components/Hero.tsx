@@ -26,21 +26,19 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           {/* Left — editorial copy */}
           <div className="lg:col-span-7">
-            <p className="eyebrow-rule">
-              A FABBI Advisory Practice
-            </p>
+            <p className="eyebrow-rule">A FABBI Advisory Practice</p>
 
-            <h1 className="mt-7 h-display text-[2.5rem] leading-[1.02] text-balance sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem]">
-              Short-term rentals are an{" "}
-              <span className="h-display-italic text-charcoal/90">
-                investment decision
-              </span>
-              , not a listing.
+            <h1 className="mt-7 h-display text-[2.25rem] leading-[1.05] text-balance sm:text-[3rem] md:text-[3.5rem] lg:text-[3.75rem]">
+              Underwrite the deal{" "}
+              <span className="h-display-italic">before you sign.</span>{" "}
+              Structure the tax{" "}
+              <span className="h-display-italic">before you close.</span>{" "}
+              Operate against the same numbers you modeled.
             </h1>
 
             <p className="mt-7 max-w-xl text-[15px] sm:text-lg leading-relaxed text-charcoal/70 text-pretty">
               STRATA helps high-income investors evaluate, structure, and launch
-              short-term rental properties — with deal underwriting, tax
+              short-term rental properties &mdash; with deal underwriting, tax
               strategy, cost segregation coordination, and operational setup
               built in from the start.
             </p>
@@ -60,7 +58,7 @@ export function Hero() {
                 <span className="font-medium text-charcoal/80">
                   Powered by FABBI
                 </span>{" "}
-                — tax, accounting & advisory.
+                &mdash; tax, accounting & advisory.
               </span>
               <span className="hidden h-3 w-px bg-charcoal/20 sm:inline-block" />
               <span>
@@ -95,7 +93,7 @@ export function Hero() {
                     Investment Roadmap
                   </p>
                   <h3 className="mt-2 h-display text-xl text-charcoal sm:text-2xl">
-                    From deal review to operating asset.
+                    From deal review to operating asset
                   </h3>
                 </div>
 
@@ -110,7 +108,7 @@ export function Hero() {
                         <span className="font-serif text-[15px] text-charcoal sm:text-base">
                           {step.label}
                         </span>
-                        <span className="text-[11px] uppercase tracking-[0.16em] text-charcoal/45">
+                        <span className="hidden text-[11px] uppercase tracking-[0.16em] text-charcoal/45 sm:inline">
                           {step.note}
                         </span>
                       </div>

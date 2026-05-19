@@ -23,7 +23,7 @@ export default function AboutPage() {
             <p className="eyebrow-rule">About</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               STRATA was built because STR investors needed{" "}
-              <span className="h-display-italic">more than a property manager.</span>
+              <span className="h-display-italic">more than a property manager</span>
             </h1>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function AboutPage() {
               <p className="section-tag-gold">Powered by FABBI</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
                 An advisory firm{" "}
-                <span className="h-display-italic">behind every engagement.</span>
+                <span className="h-display-italic">behind every engagement</span>
               </h2>
             </div>
             <div className="md:col-span-7">
@@ -104,7 +104,7 @@ export default function AboutPage() {
       <CTASection
         eyebrow="Let's Talk"
         headline="Bring the full picture"
-        italicTail="to your STR investment."
+        italicTail="to your STR investment"
         buttonText="Book a Strategy Call"
         buttonHref="/contact"
       />

@@ -89,7 +89,7 @@ export default function ProcessPage() {
             <p className="eyebrow-rule">The Process</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               A clear STR investment process —{" "}
-              <span className="h-display-italic">from first review to operating asset.</span>
+              <span className="h-display-italic">from first review to operating asset</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
               STRATA brings the deal, the tax strategy, and the launch plan into
@@ -109,7 +109,7 @@ export default function ProcessPage() {
       <CTASection
         eyebrow="Start"
         headline="Map the strategy"
-        italicTail="before the offer is signed."
+        italicTail="before the offer is signed"
         copy="STRATA's process works best when it begins before acquisition — but we can pick up at any stage."
         buttonText="Book a Strategy Call"
         buttonHref="/contact"

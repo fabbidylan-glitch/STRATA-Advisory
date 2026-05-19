@@ -11,21 +11,20 @@ const incomeRanges = [
   "$1.5M+",
 ];
 
-const buyingNow = ["Yes, actively", "Within 3 months", "Within 6–12 months", "Just exploring"];
-
-const goals = [
-  "Tax strategy",
-  "Cash flow",
-  "Portfolio growth",
-  "Unsure",
+const buyingNow = [
+  "Yes, actively",
+  "Within 3 months",
+  "Within 6–12 months",
+  "Just exploring",
 ];
+
+const goals = ["Tax strategy", "Cash flow", "Portfolio growth", "Unsure"];
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Placeholder — wired to FABBI intake when available.
     setSubmitted(true);
   };
 
@@ -34,11 +33,11 @@ export function ContactForm() {
       <div className="rounded-2xl border border-charcoal/10 bg-white p-8 sm:p-10 shadow-card">
         <p className="eyebrow">Received</p>
         <h3 className="mt-3 h-display text-2xl text-charcoal">
-          Thanks — we&rsquo;ll be in touch shortly.
+          Thanks &mdash; we&rsquo;ll be in touch shortly
         </h3>
         <p className="mt-3 text-charcoal/70 leading-relaxed">
-          A STRATA advisor will review your information and reach out within one
-          business day to schedule a strategy call.
+          A STRATA advisor will review your information and reach out within
+          one business day to schedule a strategy call.
         </p>
       </div>
     );
@@ -49,13 +48,33 @@ export function ContactForm() {
       onSubmit={onSubmit}
       className="rounded-2xl border border-charcoal/10 bg-white p-7 sm:p-9 shadow-card"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Name" required>
+      <div className="flex items-center justify-between border-b border-charcoal/10 pb-5">
+        <span className="text-[10px] uppercase tracking-[0.28em] text-charcoal/55">
+          Investor Intake
+        </span>
+        <span className="font-serif text-[11px] tracking-[0.18em] text-gold">
+          STRATA / Review
+        </span>
+      </div>
+
+      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+        <Field label="First name" required>
           <input
-            name="name"
+            name="firstName"
             required
             type="text"
-            autoComplete="name"
+            autoComplete="given-name"
+            placeholder="First name"
+            className="input"
+          />
+        </Field>
+        <Field label="Last name" required>
+          <input
+            name="lastName"
+            required
+            type="text"
+            autoComplete="family-name"
+            placeholder="Last name"
             className="input"
           />
         </Field>
@@ -65,6 +84,7 @@ export function ContactForm() {
             required
             type="email"
             autoComplete="email"
+            placeholder="you@firm.com"
             className="input"
           />
         </Field>
@@ -73,6 +93,7 @@ export function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
+            placeholder="(555) 000-0000"
             className="input"
           />
         </Field>
@@ -104,15 +125,15 @@ export function ContactForm() {
           <input
             name="price"
             type="text"
-            placeholder="$"
+            placeholder="$ — your target range"
             className="input"
           />
         </Field>
-        <Field label="Target market or property link" full>
+        <Field label="Property link">
           <input
-            name="market"
+            name="propertyLink"
             type="text"
-            placeholder="City, state, or listing URL"
+            placeholder="Paste Zillow / Airbnb / MLS link"
             className="input"
           />
         </Field>
@@ -138,17 +159,18 @@ export function ContactForm() {
           <textarea
             name="message"
             rows={4}
+            placeholder="Context on the deal, your tax position, or what's on your mind."
             className="input resize-none"
           />
         </Field>
       </div>
 
-      <div className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+      <div className="mt-8 flex flex-col-reverse items-stretch justify-between gap-4 sm:flex-row sm:items-center">
         <p className="text-xs text-charcoal/55">
           By submitting, you agree to be contacted by a STRATA advisor.
         </p>
-        <button type="submit" className="btn-primary">
-          Request STRATA Review
+        <button type="submit" className="btn-primary whitespace-nowrap">
+          Send a Property
           <ArrowRight size={16} />
         </button>
       </div>
@@ -163,6 +185,9 @@ export function ContactForm() {
           font-size: 0.925rem;
           color: #171717;
           transition: border-color 0.15s, background 0.15s;
+        }
+        :global(.input::placeholder) {
+          color: rgba(23, 23, 23, 0.4);
         }
         :global(.input:focus) {
           outline: none;
@@ -187,7 +212,7 @@ function Field({
 }) {
   return (
     <label className={`block ${full ? "sm:col-span-2" : ""}`}>
-      <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-charcoal/60">
+      <span className="mb-2 block text-[11px] uppercase tracking-[0.18em] text-charcoal/60">
         {label}
         {required && <span className="ml-1 text-gold">*</span>}
       </span>

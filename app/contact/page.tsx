@@ -9,19 +9,24 @@ export const metadata: Metadata = {
 
 const expect = [
   {
-    title: "Quick fit review",
+    title: "Confidential review",
     description:
-      "We confirm STRATA is the right fit for your goals, income, and timeline before scheduling.",
+      "Your information is reviewed in private by the practice. Not added to a marketing list.",
   },
   {
-    title: "Initial strategy call",
+    title: "First-pass response",
+    description:
+      "A STRATA advisor reads the deal and replies within one business day with a short read on fit.",
+  },
+  {
+    title: "Strategy call",
     description:
       "A working call to discuss the property, the tax position, and the right next steps.",
   },
   {
     title: "Engagement proposal",
     description:
-      "If we're aligned, you receive a clear advisory engagement scope and fee.",
+      "If we're aligned, you receive a clear advisory engagement scope and fee. If not, we'll tell you on the call.",
   },
 ];
 
@@ -34,7 +39,9 @@ export default function ContactPage() {
             <p className="eyebrow-rule">Book a Call</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               Let&rsquo;s review the STR opportunity{" "}
-              <span className="h-display-italic">before you commit capital.</span>
+              <span className="h-display-italic">
+                before you commit capital
+              </span>
             </h1>
             <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
               Share the property details and your tax situation. A STRATA
@@ -50,9 +57,12 @@ export default function ContactPage() {
           <div className="grid gap-12 md:grid-cols-12 md:gap-14">
             <div className="md:col-span-5">
               <p className="eyebrow">What to expect</p>
-              <ol className="mt-8 space-y-8">
+              <ol className="mt-8 space-y-7">
                 {expect.map((e, i) => (
-                  <li key={e.title} className="grid grid-cols-[auto_1fr] gap-5">
+                  <li
+                    key={e.title}
+                    className="grid grid-cols-[auto_1fr] gap-5"
+                  >
                     <span className="display-num text-[3rem]">0{i + 1}</span>
                     <div className="pt-2">
                       <h3 className="h-display text-lg text-charcoal sm:text-xl">
@@ -66,10 +76,21 @@ export default function ContactPage() {
                 ))}
               </ol>
 
-              <div className="mt-10 rounded-xl border border-charcoal/10 bg-ivory p-5 text-xs leading-relaxed text-charcoal/60">
-                STRATA and FABBI do not guarantee tax savings or investment
-                outcomes. All advisory work is subject to professional review.
+              <div className="mt-10 rounded-xl border border-charcoal/10 bg-ivory p-6">
+                <p className="eyebrow">Engagements begin at</p>
+                <p className="mt-2 font-serif text-3xl text-charcoal">
+                  $7,500
+                </p>
+                <p className="mt-1 text-xs text-charcoal/55">
+                  per property &mdash; 50% upfront, 50% upon closing.
+                  Third-party costs billed separately.
+                </p>
               </div>
+
+              <p className="mt-6 text-xs text-charcoal/55 leading-relaxed">
+                Subject to professional review. Outcomes depend on facts and
+                circumstances.
+              </p>
             </div>
 
             <div className="md:col-span-7">

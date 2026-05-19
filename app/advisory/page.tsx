@@ -70,7 +70,7 @@ export default function AdvisoryPage() {
             <p className="section-tag-gold">Section 01 — Scope</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
               The advisory work,{" "}
-              <span className="h-display-italic">defined.</span>
+              <span className="h-display-italic">defined</span>
             </h2>
           </div>
           <div className="mt-14 grid border-t border-charcoal/15 sm:grid-cols-2 lg:grid-cols-3">
@@ -105,7 +105,7 @@ export default function AdvisoryPage() {
               </p>
               <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl text-ivory">
                 Starting at{" "}
-                <span className="h-display-italic text-ivory">$7,500 per property.</span>
+                <span className="h-display-italic text-ivory">$7,500 per property</span>
               </h2>
               <p className="mt-6 max-w-md text-ivory/70 leading-relaxed text-pretty">
                 Advisory engagements are structured as a clear fee for clear
@@ -173,7 +173,7 @@ export default function AdvisoryPage() {
       <CTASection
         eyebrow="Next Step"
         headline="Tell us about"
-        italicTail="the deal."
+        italicTail="the deal"
         copy="Share property, price range, and your tax situation. We'll review fit before scheduling."
         buttonText="Start the Conversation"
         buttonHref="/contact"

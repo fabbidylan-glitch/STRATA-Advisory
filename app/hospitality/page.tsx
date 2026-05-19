@@ -50,7 +50,7 @@ export default function HospitalityPage() {
             <p className="eyebrow-rule">Hospitality Partners</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               A better STR investment needs{" "}
-              <span className="h-display-italic">both strategy and execution.</span>
+              <span className="h-display-italic">both strategy and execution</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
               STRATA focuses on the advisory, financial, tax, and coordination
@@ -104,7 +104,7 @@ export default function HospitalityPage() {
             <p className="section-tag-gold">Section 02 — How it Works</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
               Aligned on the{" "}
-              <span className="h-display-italic">same investor outcome.</span>
+              <span className="h-display-italic">same investor outcome</span>
             </h2>
             <p className="mt-6 text-charcoal/70 leading-relaxed text-pretty">
               Property management partners are engaged separately by the
@@ -165,7 +165,7 @@ export default function HospitalityPage() {
       <CTASection
         eyebrow="Get Started"
         headline="One investor outcome."
-        italicTail="One coordinated team."
+        italicTail="one coordinated team"
         buttonText="Book a Strategy Call"
         buttonHref="/contact"
       />

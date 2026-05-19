@@ -44,7 +44,7 @@ export default function TaxStrategyPage() {
             <p className="eyebrow-rule">Tax Strategy</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               STR tax strategy starts{" "}
-              <span className="h-display-italic">before the property is purchased.</span>
+              <span className="h-display-italic">before the property is purchased</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
               The most valuable STR planning happens before closing. Once
@@ -62,7 +62,7 @@ export default function TaxStrategyPage() {
               <p className="section-tag-gold">Section 01 — Why Timing Matters</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
                 Waiting until filing season{" "}
-                <span className="h-display-italic">is usually waiting too long.</span>
+                <span className="h-display-italic">is usually waiting too long</span>
               </h2>
               <p className="mt-6 max-w-lg text-charcoal/70 leading-relaxed text-pretty">
                 By April, documentation gaps, weak participation records, poor
@@ -102,7 +102,7 @@ export default function TaxStrategyPage() {
             <p className="section-tag-gold">Section 02 — Cost Segregation</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
               Coordinated through{" "}
-              <span className="h-display-italic">qualified providers.</span>
+              <span className="h-display-italic">qualified providers</span>
             </h2>
             <p className="mt-6 text-charcoal/70 leading-relaxed text-pretty">
               STRATA can coordinate cost segregation studies through qualified
@@ -158,7 +158,7 @@ export default function TaxStrategyPage() {
       <CTASection
         eyebrow="Plan Early"
         headline="Build the tax strategy"
-        italicTail="before the property closes."
+        italicTail="before the property closes"
         copy="Book a strategy call to review whether STR tax treatment fits your income profile, participation plan, and timeline."
         buttonText="Book a Strategy Call"
         buttonHref="/contact"

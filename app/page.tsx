@@ -2,24 +2,25 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Minus } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
-import { SectionHeading } from "@/components/SectionHeading";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { FAQ } from "@/components/FAQ";
+import { WhoRunsStrata } from "@/components/WhoRunsStrata";
+import { HomeIntake } from "@/components/HomeIntake";
 
 const problems = [
   {
     num: "01",
-    title: "The numbers are incomplete.",
+    title: "The numbers are incomplete",
     body: "Revenue projections often ignore seasonality, occupancy swings, debt service, furnishing, insurance, repairs, and management fees. Listing-level math is not investment-grade math.",
   },
   {
     num: "02",
-    title: "The tax strategy is an afterthought.",
+    title: "The tax strategy is an afterthought",
     body: "STR classification, material participation, cost segregation, and basis planning need to be considered before the investment is made — not in April once decisions are locked in.",
   },
   {
     num: "03",
-    title: "The launch is fragmented.",
+    title: "The launch is fragmented",
     body: "Agents, lenders, cost seg providers, furnishing teams, cleaners, and property managers rarely coordinate around one investor outcome. The investor ends up as the project manager.",
   },
 ];
@@ -140,22 +141,22 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
 
-      {/* Problem — editorial split, not 3 cards */}
+      {/* Problem — editorial split */}
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
-              <p className="section-tag-gold">Section 01 — The Problem</p>
+              <p className="section-tag-gold">Section 01 &mdash; The Problem</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-[2.75rem] leading-[1.05]">
-                Most STR investors start with the property.{" "}
-                <span className="h-display-italic">We start with the full picture.</span>
+                Most STR investors start with the property &mdash;{" "}
+                <span className="h-display-italic">we start with the full picture</span>
               </h2>
               <p className="mt-6 max-w-md text-charcoal/70 leading-relaxed text-pretty">
-                The wrong STR deal can look profitable on Airbnb screenshots and
-                still fail after debt service, furnishing, management, taxes,
-                repairs, and seasonality. STRATA reviews the deal through an
-                accounting, tax, and operating lens — before any capital is
-                committed.
+                The wrong STR deal can look profitable on Airbnb screenshots
+                and still fail after debt service, furnishing, management,
+                taxes, repairs, and seasonality. STRATA reviews the deal
+                through an accounting, tax, and operating lens &mdash; before
+                any capital is committed.
               </p>
             </div>
 
@@ -183,22 +184,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Method — keep timeline but with editorial top split */}
+      {/* Method */}
       <section className="border-y border-charcoal/10 bg-white">
         <div className="container-wide py-24 md:py-32">
           <div className="grid items-end gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
-              <p className="section-tag-gold">Section 02 — The Method</p>
+              <p className="section-tag-gold">Section 02 &mdash; The Method</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
-                One coordinated advisory process —{" "}
-                <span className="h-display-italic">from idea to operating asset.</span>
+                One coordinated process,{" "}
+                <span className="h-display-italic">
+                  from idea to operating asset
+                </span>
               </h2>
             </div>
             <div className="md:col-span-5">
               <p className="text-charcoal/70 leading-relaxed text-pretty">
-                Five phases, one team. Each phase builds on the last so the tax
-                strategy, deal economics, and launch plan stay aligned with the
-                investor&rsquo;s goals — not handed off vendor to vendor.
+                Five phases, one team. Each phase builds on the last so the
+                tax strategy, deal economics, and launch plan stay aligned
+                with the investor&rsquo;s goals &mdash; not handed off vendor
+                to vendor.
               </p>
             </div>
           </div>
@@ -209,14 +213,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Capabilities — editorial three-column list, no icon tiles */}
+      {/* Capabilities */}
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
           <div className="max-w-3xl">
-            <p className="section-tag-gold">Section 03 — Capabilities</p>
+            <p className="section-tag-gold">Section 03 &mdash; Capabilities</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               Advisory support where STR investments{" "}
-              <span className="h-display-italic">usually break down.</span>
+              <span className="h-display-italic">usually break down</span>
             </h2>
           </div>
 
@@ -230,7 +234,7 @@ export default function HomePage() {
                       key={item}
                       className="flex items-start gap-3 border-b border-charcoal/10 pb-4 font-serif text-lg text-charcoal"
                     >
-                      <span className="num-marker pt-2 text-xs">—</span>
+                      <span className="num-marker pt-2 text-xs">&mdash;</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -241,25 +245,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Engagement — term sheet, not a pricing card */}
+      {/* Engagement — term sheet */}
       <section className="relative overflow-hidden bg-charcoal text-ivory">
         <div className="absolute inset-0 -z-0 grain-dark opacity-60" aria-hidden />
         <div className="container-wide relative py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
               <p className="section-tag-gold !text-gold-soft">
-                Section 04 — The Engagement
+                Section 04 &mdash; The Engagement
               </p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05] text-ivory">
                 A defined advisory engagement{" "}
                 <span className="h-display-italic text-ivory">
-                  for a serious investment decision.
+                  for a serious investment decision
                 </span>
               </h2>
               <p className="mt-6 max-w-md text-ivory/70 leading-relaxed text-pretty">
-                STRATA engagements are scoped like an advisory letter — clear
-                deliverables, clear timeline, clear fee. Not a subscription, not
-                a funnel.
+                STRATA engagements are scoped like an advisory letter &mdash;
+                clear deliverables, clear timeline, clear fee. Not a
+                subscription, not a funnel.
               </p>
 
               <div className="mt-10 flex items-end gap-6">
@@ -271,7 +275,7 @@ export default function HomePage() {
                     $7,500
                   </p>
                   <p className="mt-3 text-sm text-ivory/65">
-                    per property — 50% upfront, 50% upon closing.
+                    per property &mdash; 50% upfront, 50% upon closing.
                   </p>
                 </div>
               </div>
@@ -314,7 +318,7 @@ export default function HomePage() {
                   <div className="term-row">
                     <dt>Fee</dt>
                     <dd>
-                      $7,500 per property — 50% upfront, 50% upon closing.
+                      $7,500 per property &mdash; 50% upfront, 50% upon closing.
                     </dd>
                   </div>
                   <div className="term-row">
@@ -343,15 +347,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Tax strategy — editorial split with italic pull */}
+      {/* Tax strategy */}
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-6">
-              <p className="section-tag-gold">Section 05 — Tax Strategy</p>
+              <p className="section-tag-gold">Section 05 &mdash; Tax Strategy</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
-                The tax strategy needs to be built{" "}
-                <span className="h-display-italic">before the return is filed.</span>
+                Build the tax strategy{" "}
+                <span className="h-display-italic">
+                  before the return is filed
+                </span>
               </h2>
               <p className="mt-6 max-w-lg text-charcoal/70 leading-relaxed text-pretty">
                 Many investors hear about STR losses, cost segregation, and
@@ -391,9 +397,9 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <p className="mt-6 border-t border-charcoal/10 pt-5 text-xs text-charcoal/55 leading-relaxed">
-                  Tax outcomes depend on each investor&rsquo;s facts, income,
-                  participation, property use, financing, and applicable law.
-                  STRATA and FABBI do not guarantee tax savings.
+                  Tax outcomes turn on each investor&rsquo;s facts &mdash;
+                  participation, classification, financing, and applicable
+                  law.
                 </p>
               </div>
             </div>
@@ -401,22 +407,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hospitality — editorial side-by-side, not 3 mini cards */}
+      {/* Hospitality */}
       <section className="border-y border-charcoal/10 bg-white">
         <div className="container-wide py-24 md:py-32">
           <div className="max-w-3xl">
-            <p className="section-tag-gold">Section 06 — Hospitality</p>
+            <p className="section-tag-gold">Section 06 &mdash; Hospitality</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
-              STRATA coordinates the strategy.{" "}
+              STRATA coordinates the strategy &mdash;{" "}
               <span className="h-display-italic">
-                Hospitality partners handle the guest experience.
+                hospitality partners handle the guest experience
               </span>
             </h2>
             <p className="mt-6 max-w-2xl text-charcoal/70 leading-relaxed text-pretty">
               For investors who need operational support, STRATA can coordinate
-              with hospitality and property management partners — keeping the
-              advisory, tax, and accounting strategy aligned with the actual
-              performance of the property.
+              with hospitality and property management partners &mdash;
+              keeping the advisory, tax, and accounting strategy aligned with
+              the actual performance of the property.
             </p>
           </div>
 
@@ -435,7 +441,10 @@ export default function HomePage() {
                     key={s}
                     className="flex items-start gap-3 font-serif text-lg text-charcoal"
                   >
-                    <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" aria-hidden />
+                    <span
+                      className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold"
+                      aria-hidden
+                    />
                     <span>{s}</span>
                   </li>
                 ))}
@@ -455,7 +464,10 @@ export default function HomePage() {
                     key={s}
                     className="flex items-start gap-3 font-serif text-lg text-charcoal/80"
                   >
-                    <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full border border-charcoal/40" aria-hidden />
+                    <span
+                      className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full border border-charcoal/40"
+                      aria-hidden
+                    />
                     <span>{s}</span>
                   </li>
                 ))}
@@ -464,10 +476,9 @@ export default function HomePage() {
           </div>
 
           <p className="mt-6 max-w-2xl text-xs text-charcoal/55 leading-relaxed">
-            Property management is a separate engagement and fees are billed by
+            Property management is a separate engagement; fees are billed by
             the PM partner. Investors are not required to use any single
-            partner. STRATA&rsquo;s value is alignment and coordination, not the
-            cleaning calendar.
+            partner.
           </p>
 
           <div className="mt-8">
@@ -483,10 +494,12 @@ export default function HomePage() {
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
           <div className="max-w-3xl">
-            <p className="section-tag-gold">Section 07 — Fit</p>
+            <p className="section-tag-gold">Section 07 &mdash; Fit</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               Built for investors who want clarity{" "}
-              <span className="h-display-italic">before committing capital.</span>
+              <span className="h-display-italic">
+                before committing capital
+              </span>
             </h2>
           </div>
 
@@ -531,14 +544,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Who runs STRATA */}
+      <WhoRunsStrata />
+
       {/* FAQ */}
-      <section className="border-t border-charcoal/10 bg-white">
+      <section className="bg-ivory">
         <div className="container-tight py-24 md:py-32">
           <div className="max-w-2xl">
-            <p className="section-tag-gold">Section 08 — FAQ</p>
+            <p className="section-tag-gold">Section 09 &mdash; FAQ</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               Questions investors ask{" "}
-              <span className="h-display-italic">before we begin.</span>
+              <span className="h-display-italic">before we begin</span>
             </h2>
           </div>
           <div className="mt-12">
@@ -547,7 +563,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA — editorial close */}
+      {/* Inline intake */}
+      <HomeIntake />
+
+      {/* Final CTA */}
       <section className="relative overflow-hidden bg-charcoal text-ivory">
         <div className="absolute inset-0 -z-0 grain-dark opacity-50" aria-hidden />
         <div
@@ -566,7 +585,7 @@ export default function HomePage() {
             <h2 className="mt-6 h-display text-[2.25rem] text-balance leading-[1.05] sm:text-5xl md:text-6xl text-ivory">
               Validate the strategy{" "}
               <span className="h-display-italic text-ivory">
-                before you buy the property.
+                before you buy the property
               </span>
             </h2>
             <p className="mt-7 max-w-2xl text-lg text-ivory/75 leading-relaxed text-pretty">
@@ -585,11 +604,10 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="mt-12 border-t border-ivory/15 pt-6 text-xs text-ivory/55">
-              STRATA is an advisory and coordination practice. Property
-              performance, financing, and tax outcomes depend on each
-              investor&rsquo;s facts and circumstances and are not guaranteed.
-            </div>
+            <p className="mt-12 border-t border-ivory/15 pt-6 text-xs text-ivory/55">
+              Subject to professional review. STRATA does not guarantee tax
+              outcomes or investment results.
+            </p>
           </div>
         </div>
       </section>
