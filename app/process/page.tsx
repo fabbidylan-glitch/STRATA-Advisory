@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CTASection } from "@/components/CTASection";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Process | STR Investment Advisory",
@@ -85,7 +86,7 @@ export default function ProcessPage() {
     <>
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <div className="max-w-3xl">
+          <FadeIn start="mount" className="max-w-3xl">
             <p className="eyebrow-rule">The Process</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               A clear STR investment process —{" "}
@@ -96,7 +97,7 @@ export default function ProcessPage() {
               one coordinated workflow &mdash; so investors aren&rsquo;t
               stitching vendors together while capital is on the line.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

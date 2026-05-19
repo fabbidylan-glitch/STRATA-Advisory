@@ -1,4 +1,7 @@
+"use client";
+
 import { ShieldCheck } from "lucide-react";
+import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 
 const acquisition = [
   { label: "Purchase Price", value: "$725,000" },
@@ -53,7 +56,7 @@ export function SampleUnderwrite() {
       <div className="container-wide pt-24 pb-28 md:pt-32 md:pb-40">
         <div className="grid gap-14 md:grid-cols-12 md:gap-12">
           {/* Left — framing */}
-          <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
+          <FadeIn className="md:col-span-5 md:sticky md:top-28 md:self-start">
             <p className="section-tag-gold">Sample STR Underwrite</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-[2.75rem]">
               Before the tax strategy,{" "}
@@ -69,10 +72,10 @@ export function SampleUnderwrite() {
               Illustrative only. Actual results depend on the property,
               financing, market data, tax facts, participation, and execution.
             </p>
-          </div>
+          </FadeIn>
 
           {/* Right — the memo */}
-          <div className="md:col-span-7">
+          <FadeIn y={20} delay={0.1} className="md:col-span-7">
             <div className="overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-soft">
               {/* Memo header */}
               <div className="flex items-center justify-between border-b border-ivory/15 bg-charcoal px-6 py-4 text-ivory sm:px-8">
@@ -102,12 +105,21 @@ export function SampleUnderwrite() {
                 </span>
               </div>
 
-              <div className="space-y-7 px-6 py-7 sm:px-8 sm:py-8">
-                <Ledger heading="Acquisition" rows={acquisition} />
-                <Ledger heading="Operations" rows={operations} />
+              <Stagger
+                stagger={0.09}
+                delayChildren={0.12}
+                className="space-y-7 px-6 py-7 sm:px-8 sm:py-8"
+              >
+                <StaggerItem>
+                  <Ledger heading="Acquisition" rows={acquisition} />
+                </StaggerItem>
+
+                <StaggerItem>
+                  <Ledger heading="Operations" rows={operations} />
+                </StaggerItem>
 
                 {/* Outcome — base vs stress */}
-                <div>
+                <StaggerItem>
                   <p className="text-[10px] uppercase tracking-[0.24em] text-charcoal/45">
                     Outcome &mdash; Year One Cash Flow
                   </p>
@@ -129,27 +141,31 @@ export function SampleUnderwrite() {
                       </p>
                     </div>
                   </div>
-                </div>
+                </StaggerItem>
 
-                <Ledger heading="Costs" rows={costs} />
+                <StaggerItem>
+                  <Ledger heading="Costs" rows={costs} />
+                </StaggerItem>
 
                 {/* Recommendation */}
-                <div className="rounded-xl border border-gold/30 bg-gold/[0.06] p-5 sm:p-6">
-                  <div className="flex items-center gap-2.5">
-                    <ShieldCheck size={15} className="text-gold" aria-hidden />
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-gold">
-                      Preliminary Read
+                <StaggerItem>
+                  <div className="rounded-xl border border-gold/30 bg-gold/[0.06] p-5 sm:p-6">
+                    <div className="flex items-center gap-2.5">
+                      <ShieldCheck size={15} className="text-gold" aria-hidden />
+                      <p className="text-[11px] uppercase tracking-[0.22em] text-gold">
+                        Preliminary Read
+                      </p>
+                    </div>
+                    <p className="mt-3 text-[15px] leading-relaxed text-charcoal/80 text-pretty">
+                      Worth deeper review if financing terms hold and the
+                      investor can document material participation. Tax impact
+                      should be modeled before offer terms are finalized.
                     </p>
                   </div>
-                  <p className="mt-3 text-[15px] leading-relaxed text-charcoal/80 text-pretty">
-                    Worth deeper review if financing terms hold and the
-                    investor can document material participation. Tax impact
-                    should be modeled before offer terms are finalized.
-                  </p>
-                </div>
-              </div>
+                </StaggerItem>
+              </Stagger>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

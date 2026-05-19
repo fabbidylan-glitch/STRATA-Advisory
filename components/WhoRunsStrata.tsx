@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { FadeIn } from "@/components/motion";
 
 const pillars = [
   {
@@ -24,17 +25,17 @@ export function WhoRunsStrata() {
   return (
     <section className="bg-white border-y border-charcoal/10">
       <div className="container-wide py-24 md:py-32">
-        <div className="max-w-3xl">
+        <FadeIn className="max-w-3xl">
           <p className="section-tag-gold">Section 08 &mdash; Who Runs STRATA</p>
           <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
             A practice run from inside{" "}
             <span className="h-display-italic">an advisory firm</span>
           </h2>
-        </div>
+        </FadeIn>
 
         <div className="mt-14 grid gap-14 border-t border-charcoal/15 pt-14 md:grid-cols-12 md:gap-16">
           {/* Principal column */}
-          <div className="md:col-span-5">
+          <FadeIn className="md:col-span-5">
             <div className="flex items-start gap-5">
               <div
                 aria-hidden
@@ -72,10 +73,10 @@ export function WhoRunsStrata() {
               More about STRATA &amp; FABBI
               <ArrowUpRight size={14} />
             </Link>
-          </div>
+          </FadeIn>
 
           {/* FABBI infrastructure column */}
-          <div className="md:col-span-7">
+          <FadeIn delay={0.1} className="md:col-span-7">
             <p className="eyebrow">FABBI Infrastructure</p>
             <p className="mt-4 max-w-xl text-[15px] text-charcoal/75 leading-relaxed text-pretty">
               Every STRATA engagement is supported by the same firm
@@ -100,7 +101,7 @@ export function WhoRunsStrata() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

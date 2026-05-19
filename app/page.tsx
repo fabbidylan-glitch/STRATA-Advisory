@@ -7,6 +7,7 @@ import { FAQ } from "@/components/FAQ";
 import { WhoRunsStrata } from "@/components/WhoRunsStrata";
 import { HomeIntake } from "@/components/HomeIntake";
 import { SampleUnderwrite } from "@/components/SampleUnderwrite";
+import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 
 const problems = [
   {
@@ -149,7 +150,7 @@ export default function HomePage() {
       <section className="border-t border-gold/20 bg-white">
         <div className="container-wide py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
+            <FadeIn className="md:col-span-5 md:sticky md:top-28 md:self-start">
               <p className="section-tag-gold">Section 01 &mdash; The Problem</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-[2.75rem] leading-[1.05]">
                 Most STR investors start with the property &mdash;{" "}
@@ -162,12 +163,13 @@ export default function HomePage() {
                 through an accounting, tax, and operating lens &mdash; before
                 any capital is committed.
               </p>
-            </div>
+            </FadeIn>
 
             <div className="md:col-span-7">
-              <ol className="space-y-10">
+              <Stagger as="ol" stagger={0.12} className="space-y-10">
                 {problems.map((p) => (
-                  <li
+                  <StaggerItem
+                    as="li"
                     key={p.num}
                     className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-charcoal/15 pt-8 sm:gap-x-10"
                   >
@@ -180,9 +182,9 @@ export default function HomePage() {
                         {p.body}
                       </p>
                     </div>
-                  </li>
+                  </StaggerItem>
                 ))}
-              </ol>
+              </Stagger>
             </div>
           </div>
         </div>
@@ -191,7 +193,7 @@ export default function HomePage() {
       {/* Method */}
       <section className="border-y border-charcoal/10 bg-white">
         <div className="container-wide py-24 md:py-32">
-          <div className="grid items-end gap-10 md:grid-cols-12">
+          <FadeIn className="grid items-end gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="section-tag-gold">Section 02 &mdash; The Method</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
@@ -209,7 +211,7 @@ export default function HomePage() {
                 to vendor.
               </p>
             </div>
-          </div>
+          </FadeIn>
 
           <div className="mt-16 md:mt-20">
             <ProcessTimeline steps={method} />
@@ -220,17 +222,17 @@ export default function HomePage() {
       {/* Capabilities */}
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
-          <div className="max-w-3xl">
+          <FadeIn className="max-w-3xl">
             <p className="section-tag-gold">Section 03 &mdash; Capabilities</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               Advisory support where STR investments{" "}
               <span className="h-display-italic">usually break down</span>
             </h2>
-          </div>
+          </FadeIn>
 
-          <div className="mt-14 grid gap-12 border-t border-charcoal/15 pt-12 md:grid-cols-3 md:gap-10">
+          <Stagger className="mt-14 grid gap-12 border-t border-charcoal/15 pt-12 md:grid-cols-3 md:gap-10">
             {capabilities.map((c) => (
-              <div key={c.eyebrow}>
+              <StaggerItem key={c.eyebrow}>
                 <p className="eyebrow">{c.eyebrow}</p>
                 <ul className="mt-6 space-y-4">
                   {c.items.map((item) => (
@@ -243,9 +245,9 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -254,7 +256,7 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-0 grain-dark opacity-60" aria-hidden />
         <div className="container-wide relative py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-5">
+            <FadeIn className="md:col-span-5">
               <p className="section-tag-gold !text-gold-soft">
                 Section 04 &mdash; The Engagement
               </p>
@@ -283,9 +285,9 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
-            <div className="md:col-span-7">
+            <FadeIn y={20} delay={0.1} className="md:col-span-7">
               <div className="rounded-2xl border border-ivory/15 bg-ink/40 p-7 sm:p-9">
                 <div className="flex items-center justify-between border-b border-ivory/15 pb-5">
                   <span className="text-[10px] uppercase tracking-[0.28em] text-ivory/55">
@@ -346,7 +348,7 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -355,7 +357,7 @@ export default function HomePage() {
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-6">
+            <FadeIn className="md:col-span-6">
               <p className="section-tag-gold">Section 05 &mdash; Tax Strategy</p>
               <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
                 Build the tax strategy{" "}
@@ -376,9 +378,9 @@ export default function HomePage() {
                   <ArrowUpRight size={14} />
                 </Link>
               </div>
-            </div>
+            </FadeIn>
 
-            <div className="md:col-span-6">
+            <FadeIn y={20} delay={0.1} className="md:col-span-6">
               <div className="rounded-2xl border border-charcoal/10 bg-white p-7 shadow-card sm:p-9">
                 <div className="flex items-center justify-between border-b border-charcoal/10 pb-4">
                   <p className="eyebrow">What we evaluate</p>
@@ -406,7 +408,7 @@ export default function HomePage() {
                   law.
                 </p>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -414,7 +416,7 @@ export default function HomePage() {
       {/* Hospitality */}
       <section className="border-y border-charcoal/10 bg-white">
         <div className="container-wide py-24 md:py-32">
-          <div className="max-w-3xl">
+          <FadeIn className="max-w-3xl">
             <p className="section-tag-gold">Section 06 &mdash; Hospitality</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               STRATA coordinates the strategy &mdash;{" "}
@@ -428,9 +430,9 @@ export default function HomePage() {
               keeping the advisory, tax, and accounting strategy aligned with
               the actual performance of the property.
             </p>
-          </div>
+          </FadeIn>
 
-          <div className="mt-14 grid items-stretch overflow-hidden rounded-2xl border border-charcoal/10 bg-ivory md:grid-cols-2">
+          <FadeIn y={20} delay={0.05} className="mt-14 grid items-stretch overflow-hidden rounded-2xl border border-charcoal/10 bg-ivory md:grid-cols-2">
             <div className="border-b border-charcoal/10 p-8 md:border-b-0 md:border-r md:p-10">
               <p className="eyebrow">STRATA handles</p>
               <ul className="mt-6 space-y-3">
@@ -477,7 +479,7 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-          </div>
+          </FadeIn>
 
           <p className="mt-6 max-w-2xl text-xs text-charcoal/55 leading-relaxed">
             Property management is a separate engagement; fees are billed by
@@ -497,7 +499,7 @@ export default function HomePage() {
       {/* For / Not for */}
       <section className="bg-ivory">
         <div className="container-wide py-24 md:py-32">
-          <div className="max-w-3xl">
+          <FadeIn className="max-w-3xl">
             <p className="section-tag-gold">Section 07 &mdash; Fit</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               Built for investors who want clarity{" "}
@@ -505,7 +507,7 @@ export default function HomePage() {
                 before committing capital
               </span>
             </h2>
-          </div>
+          </FadeIn>
 
           <div className="mt-12 grid gap-10 border-t border-charcoal/15 pt-12 md:grid-cols-2 md:gap-16">
             <div>
@@ -554,13 +556,13 @@ export default function HomePage() {
       {/* FAQ */}
       <section className="bg-ivory">
         <div className="container-tight py-24 md:py-32">
-          <div className="max-w-2xl">
+          <FadeIn className="max-w-2xl">
             <p className="section-tag-gold">Section 09 &mdash; FAQ</p>
             <h2 className="mt-6 h-display text-[2rem] text-balance sm:text-4xl md:text-5xl leading-[1.05]">
               Questions investors ask{" "}
               <span className="h-display-italic">before we begin</span>
             </h2>
-          </div>
+          </FadeIn>
           <div className="mt-12">
             <FAQ items={faqs} />
           </div>
@@ -582,7 +584,7 @@ export default function HomePage() {
           }}
         />
         <div className="container-tight relative py-28 md:py-36">
-          <div className="max-w-3xl">
+          <FadeIn className="max-w-3xl">
             <p className="section-tag-gold !text-gold-soft">
               Before the offer is signed
             </p>
@@ -612,7 +614,7 @@ export default function HomePage() {
               Subject to professional review. STRATA does not guarantee tax
               outcomes or investment results.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
     </>

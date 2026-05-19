@@ -1,3 +1,7 @@
+"use client";
+
+import { Stagger, StaggerItem } from "@/components/motion";
+
 type Step = {
   num: string;
   title: string;
@@ -7,9 +11,10 @@ type Step = {
 
 export function ProcessTimeline({ steps }: { steps: Step[] }) {
   return (
-    <ol className="space-y-0">
+    <Stagger as="ol" stagger={0.12} className="space-y-0">
       {steps.map((step, i) => (
-        <li
+        <StaggerItem
+          as="li"
           key={step.num}
           className={`grid gap-6 border-t border-charcoal/15 py-10 md:grid-cols-12 md:gap-10 md:py-12 ${
             i === steps.length - 1 ? "border-b" : ""
@@ -49,8 +54,8 @@ export function ProcessTimeline({ steps }: { steps: Step[] }) {
               </ul>
             )}
           </div>
-        </li>
+        </StaggerItem>
       ))}
-    </ol>
+    </Stagger>
   );
 }

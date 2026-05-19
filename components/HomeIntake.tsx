@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 
 export function HomeIntake() {
   const [submitted, setSubmitted] = useState(false);
@@ -27,8 +28,8 @@ export function HomeIntake() {
           {/* Left — what happens next */}
           <div className="md:col-span-5">
             <p className="eyebrow">Review Process</p>
-            <ol className="mt-8 space-y-7">
-              <li className="grid grid-cols-[auto_1fr] gap-5">
+            <Stagger as="ol" stagger={0.1} className="mt-8 space-y-7">
+              <StaggerItem as="li" className="grid grid-cols-[auto_1fr] gap-5">
                 <span className="display-num text-[3rem]">01</span>
                 <div className="pt-2">
                   <p className="font-serif text-lg text-charcoal sm:text-xl">
@@ -39,8 +40,8 @@ export function HomeIntake() {
                     tax situation. Reviewed in private by the practice.
                   </p>
                 </div>
-              </li>
-              <li className="grid grid-cols-[auto_1fr] gap-5">
+              </StaggerItem>
+              <StaggerItem as="li" className="grid grid-cols-[auto_1fr] gap-5">
                 <span className="display-num text-[3rem]">02</span>
                 <div className="pt-2">
                   <p className="font-serif text-lg text-charcoal sm:text-xl">
@@ -51,8 +52,8 @@ export function HomeIntake() {
                     fit and a proposed strategy call.
                   </p>
                 </div>
-              </li>
-              <li className="grid grid-cols-[auto_1fr] gap-5">
+              </StaggerItem>
+              <StaggerItem as="li" className="grid grid-cols-[auto_1fr] gap-5">
                 <span className="display-num text-[3rem]">03</span>
                 <div className="pt-2">
                   <p className="font-serif text-lg text-charcoal sm:text-xl">
@@ -64,8 +65,8 @@ export function HomeIntake() {
                     first call.
                   </p>
                 </div>
-              </li>
-            </ol>
+              </StaggerItem>
+            </Stagger>
 
             <p className="mt-10 max-w-md text-xs text-charcoal/55 leading-relaxed">
               Sent in confidence. No marketing list. Subject to professional
@@ -74,7 +75,7 @@ export function HomeIntake() {
           </div>
 
           {/* Right — compact intake form */}
-          <div className="md:col-span-7">
+          <FadeIn y={20} delay={0.1} className="md:col-span-7">
             {submitted ? (
               <div className="rounded-2xl border border-charcoal/10 bg-white p-8 shadow-card sm:p-10">
                 <p className="eyebrow">Received</p>
@@ -199,7 +200,7 @@ export function HomeIntake() {
                 `}</style>
               </form>
             )}
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

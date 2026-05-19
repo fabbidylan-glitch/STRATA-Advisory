@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 
 const roadmap = [
   { num: "01", label: "Deal Review", note: "Underwriting" },
@@ -25,54 +26,69 @@ export function Hero() {
       <div className="container-wide pb-20 pt-14 sm:pt-20 md:pb-32 md:pt-24">
         <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Left — editorial copy */}
-          <div className="lg:col-span-7">
-            <p className="eyebrow-rule">A FABBI Advisory Practice</p>
+          <Stagger
+            start="mount"
+            stagger={0.1}
+            delayChildren={0.05}
+            className="lg:col-span-7"
+          >
+            <StaggerItem>
+              <p className="eyebrow-rule">A FABBI Advisory Practice</p>
+            </StaggerItem>
 
-            <h1 className="mt-7 h-display text-[2.25rem] leading-[1.05] text-balance sm:text-[3rem] md:text-[3.5rem] lg:text-[3.75rem]">
-              Underwrite the deal{" "}
-              <span className="h-display-italic">before you sign.</span>{" "}
-              Structure the tax{" "}
-              <span className="h-display-italic">before you close.</span>{" "}
-              Operate against the same numbers you modeled.
-            </h1>
+            <StaggerItem>
+              <h1 className="mt-7 h-display text-[2.25rem] leading-[1.05] text-balance sm:text-[3rem] md:text-[3.5rem] lg:text-[3.75rem]">
+                Underwrite the deal{" "}
+                <span className="h-display-italic">before you sign.</span>{" "}
+                Structure the tax{" "}
+                <span className="h-display-italic">before you close.</span>{" "}
+                Operate against the same numbers you modeled.
+              </h1>
+            </StaggerItem>
 
-            <p className="mt-7 max-w-xl text-[15px] sm:text-lg leading-relaxed text-charcoal/70 text-pretty">
-              STRATA helps high-income investors evaluate, structure, and launch
-              short-term rental properties &mdash; with deal underwriting, tax
-              strategy, cost segregation coordination, and operational setup
-              built in from the start.
-            </p>
+            <StaggerItem>
+              <p className="mt-7 max-w-xl text-[15px] sm:text-lg leading-relaxed text-charcoal/70 text-pretty">
+                STRATA helps high-income investors evaluate, structure, and
+                launch short-term rental properties &mdash; with deal
+                underwriting, tax strategy, cost segregation coordination, and
+                operational setup built in from the start.
+              </p>
+            </StaggerItem>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-primary">
-                Book a Strategy Call
-                <ArrowRight size={16} />
-              </Link>
-              <Link href="/process" className="btn-secondary">
-                See the Process
-              </Link>
-            </div>
+            <StaggerItem>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <Link href="/contact" className="btn-primary">
+                  Book a Strategy Call
+                  <ArrowRight size={16} />
+                </Link>
+                <Link href="/process" className="btn-secondary">
+                  See the Process
+                </Link>
+              </div>
+            </StaggerItem>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-charcoal/10 pt-6 text-[13px] text-charcoal/60">
-              <span>
-                <span className="font-medium text-charcoal/80">
-                  Powered by FABBI
-                </span>{" "}
-                &mdash; tax, accounting & advisory.
-              </span>
-              <span className="hidden h-3 w-px bg-charcoal/20 sm:inline-block" />
-              <span>
-                Engagements begin at{" "}
-                <span className="font-medium text-charcoal/80">
-                  $7,500 / property
+            <StaggerItem>
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-charcoal/10 pt-6 text-[13px] text-charcoal/60">
+                <span>
+                  <span className="font-medium text-charcoal/80">
+                    Powered by FABBI
+                  </span>{" "}
+                  &mdash; tax, accounting & advisory.
                 </span>
-                .
-              </span>
-            </div>
-          </div>
+                <span className="hidden h-3 w-px bg-charcoal/20 sm:inline-block" />
+                <span>
+                  Engagements begin at{" "}
+                  <span className="font-medium text-charcoal/80">
+                    $7,500 / property
+                  </span>
+                  .
+                </span>
+              </div>
+            </StaggerItem>
+          </Stagger>
 
           {/* Right — engagement memo card */}
-          <div className="lg:col-span-5">
+          <FadeIn start="mount" delay={0.25} y={24} className="lg:col-span-5">
             <div className="relative">
               <div
                 className="absolute -inset-4 rounded-[28px] bg-gradient-to-br from-sand/50 via-transparent to-stone/40 blur-2xl"
@@ -97,9 +113,16 @@ export function Hero() {
                   </h3>
                 </div>
 
-                <ol className="mt-5 divide-y divide-charcoal/8 border-y border-charcoal/8">
+                <Stagger
+                  as="ol"
+                  start="mount"
+                  stagger={0.07}
+                  delayChildren={0.5}
+                  className="mt-5 divide-y divide-charcoal/8 border-y border-charcoal/8"
+                >
                   {roadmap.map((step) => (
-                    <li
+                    <StaggerItem
+                      as="li"
                       key={step.num}
                       className="grid grid-cols-[44px_1fr] items-center gap-x-4 px-6 py-3.5"
                     >
@@ -112,9 +135,9 @@ export function Hero() {
                           {step.note}
                         </span>
                       </div>
-                    </li>
+                    </StaggerItem>
                   ))}
-                </ol>
+                </Stagger>
 
                 <div className="grid grid-cols-2 divide-x divide-charcoal/8 bg-ivory">
                   <div className="px-6 py-4">
@@ -136,7 +159,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

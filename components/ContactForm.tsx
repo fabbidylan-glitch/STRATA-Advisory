@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { FadeIn } from "@/components/motion";
 
 const incomeRanges = [
   "Under $200,000",
@@ -31,7 +32,7 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="rounded-2xl border border-charcoal/10 bg-white p-8 sm:p-10 shadow-card">
-        <p className="eyebrow">Received</p>
+        <p className="eyebrow" aria-live="polite">Received</p>
         <h3 className="mt-3 h-display text-2xl text-charcoal">
           Thanks &mdash; we&rsquo;ll be in touch shortly
         </h3>
@@ -44,10 +45,11 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
+    <FadeIn
+      as="div"
       className="rounded-2xl border border-charcoal/10 bg-white p-7 sm:p-9 shadow-card"
     >
+    <form onSubmit={onSubmit}>
       <div className="flex items-center justify-between border-b border-charcoal/10 pb-5">
         <span className="text-[10px] uppercase tracking-[0.28em] text-charcoal/55">
           Investor Intake
@@ -196,6 +198,7 @@ export function ContactForm() {
         }
       `}</style>
     </form>
+    </FadeIn>
   );
 }
 

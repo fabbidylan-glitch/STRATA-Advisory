@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Advisory | STRATA Engagement",
@@ -47,7 +48,7 @@ export default function AdvisoryPage() {
     <>
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <div className="max-w-3xl">
+          <FadeIn start="mount" className="max-w-3xl">
             <p className="eyebrow-rule">Advisory Engagement</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               STR advisory for investors who want{" "}
@@ -60,7 +61,7 @@ export default function AdvisoryPage() {
               review, deal underwriting, tax strategy mapping, cost segregation
               coordination, and launch support.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

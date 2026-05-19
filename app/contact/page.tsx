@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Book a Strategy Call",
@@ -35,7 +36,7 @@ export default function ContactPage() {
     <>
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <div className="max-w-3xl">
+          <FadeIn start="mount" className="max-w-3xl">
             <p className="eyebrow-rule">Book a Call</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               Let&rsquo;s review the STR opportunity{" "}
@@ -48,7 +49,7 @@ export default function ContactPage() {
               advisor will review your information and reach out within one
               business day.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CTASection } from "@/components/CTASection";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Hospitality Partners | STRATA",
@@ -46,7 +47,7 @@ export default function HospitalityPage() {
     <>
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <div className="max-w-3xl">
+          <FadeIn start="mount" className="max-w-3xl">
             <p className="eyebrow-rule">Hospitality Partners</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               A better STR investment needs{" "}
@@ -59,7 +60,7 @@ export default function HospitalityPage() {
               guest experience, pricing, cleaning, communication, and local
               operations.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { FadeIn } from "@/components/motion";
 
 type Props = {
   eyebrow?: string;
@@ -45,7 +46,7 @@ export function CTASection({
         </>
       )}
       <div className="container-tight relative py-24 md:py-32">
-        <div className="grid items-end gap-12 md:grid-cols-12">
+        <FadeIn className="grid items-end gap-12 md:grid-cols-12">
           <div className="md:col-span-8">
             {eyebrow && (
               <p
@@ -106,7 +107,7 @@ export function CTASection({
               )}
             </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

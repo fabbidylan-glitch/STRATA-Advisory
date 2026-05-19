@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export type FAQItem = { q: string; a: string };
 
@@ -23,18 +24,32 @@ export function FAQ({ items }: { items: FAQItem[] }) {
               <span className="font-serif text-lg text-charcoal sm:text-xl">
                 {item.q}
               </span>
-              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center self-center rounded-full border border-charcoal/15 text-charcoal transition group-hover:border-charcoal/40">
+              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center self-center rounded-full border border-charcoal/15 text-charcoal transition">
                 {isOpen ? <Minus size={14} /> : <Plus size={14} />}
               </span>
             </button>
-            {isOpen && (
-              <div className="grid grid-cols-[auto_1fr] gap-6 pb-7 sm:pb-8">
-                <span aria-hidden className="w-[1.5rem]" />
-                <p className="max-w-2xl pr-8 text-charcoal/75 leading-relaxed text-pretty">
-                  {item.a}
-                </p>
-              </div>
-            )}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{
+                    height: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
+                    opacity: { duration: 0.25 },
+                  }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid grid-cols-[auto_1fr] gap-6 pb-7 sm:pb-8">
+                    <span aria-hidden className="w-[1.5rem]" />
+                    <p className="max-w-2xl pr-8 text-charcoal/75 leading-relaxed text-pretty">
+                      {item.a}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         );
       })}

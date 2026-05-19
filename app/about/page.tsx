@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CTASection } from "@/components/CTASection";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "About STRATA",
@@ -19,13 +20,13 @@ export default function AboutPage() {
     <>
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <div className="max-w-3xl">
+          <FadeIn start="mount" className="max-w-3xl">
             <p className="eyebrow-rule">About</p>
             <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
               STRATA was built because STR investors needed{" "}
               <span className="h-display-italic">more than a property manager</span>
             </h1>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
