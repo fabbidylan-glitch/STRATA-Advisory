@@ -7,48 +7,50 @@ type Step = {
 
 export function ProcessTimeline({ steps }: { steps: Step[] }) {
   return (
-    <ol className="relative">
-      <span
-        className="absolute left-[19px] top-2 bottom-2 hidden w-px bg-charcoal/15 md:block"
-        aria-hidden
-      />
-      <div className="space-y-12 md:space-y-16">
-        {steps.map((step) => (
-          <li key={step.num} className="grid gap-6 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-4">
-              <div className="flex items-center gap-4">
-                <span className="relative z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-charcoal/15 bg-ivory font-serif text-sm text-gold">
-                  {step.num}
-                </span>
-                <h3 className="h-display text-xl sm:text-2xl text-charcoal">
+    <ol className="space-y-0">
+      {steps.map((step, i) => (
+        <li
+          key={step.num}
+          className={`grid gap-6 border-t border-charcoal/15 py-10 md:grid-cols-12 md:gap-10 md:py-12 ${
+            i === steps.length - 1 ? "border-b" : ""
+          }`}
+        >
+          <div className="md:col-span-4">
+            <div className="flex items-baseline gap-5">
+              <span className="display-num">{step.num}</span>
+              <div className="pt-2">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-charcoal/45">
+                  Phase {parseInt(step.num, 10)}
+                </p>
+                <h3 className="mt-2 h-display text-xl text-charcoal sm:text-2xl">
                   {step.title}
                 </h3>
               </div>
             </div>
-            <div className="md:col-span-8">
-              <p className="text-base text-charcoal/75 leading-relaxed text-pretty">
-                {step.description}
-              </p>
-              {step.points && step.points.length > 0 && (
-                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {step.points.map((p) => (
-                    <li
-                      key={p}
-                      className="flex gap-3 text-sm text-charcoal/80"
-                    >
-                      <span
-                        className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold"
-                        aria-hidden
-                      />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </li>
-        ))}
-      </div>
+          </div>
+          <div className="md:col-span-8 md:pt-2">
+            <p className="max-w-2xl text-[15px] text-charcoal/75 leading-relaxed text-pretty sm:text-base">
+              {step.description}
+            </p>
+            {step.points && step.points.length > 0 && (
+              <ul className="mt-6 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+                {step.points.map((p) => (
+                  <li
+                    key={p}
+                    className="flex items-start gap-3 border-b border-charcoal/8 py-2 text-sm text-charcoal/80"
+                  >
+                    <span
+                      className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold"
+                      aria-hidden
+                    />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </li>
+      ))}
     </ol>
   );
 }

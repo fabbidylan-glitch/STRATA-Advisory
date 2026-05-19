@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SectionHeading } from "@/components/SectionHeading";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CTASection } from "@/components/CTASection";
 
@@ -87,15 +86,15 @@ export default function ProcessPage() {
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
           <div className="max-w-3xl">
-            <p className="eyebrow">The Process</p>
-            <h1 className="mt-4 h-display text-4xl text-balance sm:text-5xl md:text-6xl">
-              A clear STR investment process from first review to operating
-              asset.
+            <p className="eyebrow-rule">The Process</p>
+            <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
+              A clear STR investment process —{" "}
+              <span className="h-display-italic">from first review to operating asset.</span>
             </h1>
-            <p className="mt-6 text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
+            <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
               STRATA brings the deal, the tax strategy, and the launch plan into
-              one coordinated workflow — so investors aren&rsquo;t stitching
-              vendors together while capital is on the line.
+              one coordinated workflow &mdash; so investors aren&rsquo;t
+              stitching vendors together while capital is on the line.
             </p>
           </div>
         </div>
@@ -109,7 +108,8 @@ export default function ProcessPage() {
 
       <CTASection
         eyebrow="Start"
-        headline="Map the strategy before the offer is signed."
+        headline="Map the strategy"
+        italicTail="before the offer is signed."
         copy="STRATA's process works best when it begins before acquisition — but we can pick up at any stage."
         buttonText="Book a Strategy Call"
         buttonHref="/contact"

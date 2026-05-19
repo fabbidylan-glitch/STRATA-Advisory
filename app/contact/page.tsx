@@ -31,11 +31,12 @@ export default function ContactPage() {
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
           <div className="max-w-3xl">
-            <p className="eyebrow">Book a Call</p>
-            <h1 className="mt-4 h-display text-4xl text-balance sm:text-5xl md:text-6xl">
-              Let&rsquo;s review the STR opportunity before you commit capital.
+            <p className="eyebrow-rule">Book a Call</p>
+            <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
+              Let&rsquo;s review the STR opportunity{" "}
+              <span className="h-display-italic">before you commit capital.</span>
             </h1>
-            <p className="mt-6 text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
+            <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
               Share the property details and your tax situation. A STRATA
               advisor will review your information and reach out within one
               business day.
@@ -46,18 +47,18 @@ export default function ContactPage() {
 
       <section className="border-y border-charcoal/10 bg-white">
         <div className="container-wide py-20 md:py-28">
-          <div className="grid gap-12 md:grid-cols-12">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-14">
             <div className="md:col-span-5">
               <p className="eyebrow">What to expect</p>
-              <ol className="mt-6 space-y-6">
+              <ol className="mt-8 space-y-8">
                 {expect.map((e, i) => (
-                  <li key={e.title} className="flex gap-4">
-                    <span className="num-marker pt-0.5">0{i + 1}</span>
-                    <div>
-                      <h3 className="h-display text-lg text-charcoal">
+                  <li key={e.title} className="grid grid-cols-[auto_1fr] gap-5">
+                    <span className="display-num text-[3rem]">0{i + 1}</span>
+                    <div className="pt-2">
+                      <h3 className="h-display text-lg text-charcoal sm:text-xl">
                         {e.title}
                       </h3>
-                      <p className="mt-1 text-sm text-charcoal/70 leading-relaxed">
+                      <p className="mt-2 text-sm text-charcoal/70 leading-relaxed">
                         {e.description}
                       </p>
                     </div>
@@ -65,7 +66,7 @@ export default function ContactPage() {
                 ))}
               </ol>
 
-              <div className="mt-10 rounded-xl border border-charcoal/10 bg-ivory p-5 text-xs text-charcoal/60">
+              <div className="mt-10 rounded-xl border border-charcoal/10 bg-ivory p-5 text-xs leading-relaxed text-charcoal/60">
                 STRATA and FABBI do not guarantee tax savings or investment
                 outcomes. All advisory work is subject to professional review.
               </div>

@@ -32,18 +32,50 @@ body {
   .container-wide {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
+  .container-prose {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
+  }
+
   .h-display {
     @apply font-serif font-medium tracking-tightest text-charcoal;
     line-height: 1.02;
   }
-  .eyebrow {
-    @apply text-xs font-medium uppercase tracking-[0.18em] text-gold;
+  .h-display-italic {
+    @apply font-serif italic font-normal text-charcoal;
+    line-height: 1.05;
   }
+
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-gold;
+  }
+  .eyebrow-rule {
+    @apply flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-gold;
+  }
+  .eyebrow-rule::before {
+    content: "";
+    @apply inline-block h-px w-8 bg-gold/60;
+  }
+
+  .section-tag {
+    @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-charcoal/55;
+  }
+  .section-tag::before {
+    content: "";
+    @apply inline-block h-px w-10 bg-charcoal/30;
+  }
+  .section-tag-gold {
+    @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-gold;
+  }
+  .section-tag-gold::before {
+    content: "";
+    @apply inline-block h-px w-10 bg-gold/50;
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-charcoal px-6 py-3 text-sm font-medium text-ivory transition hover:bg-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/15 bg-transparent px-6 py-3 text-sm font-medium text-charcoal transition hover:border-charcoal/40 hover:bg-charcoal/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 bg-transparent px-6 py-3 text-sm font-medium text-charcoal transition hover:border-charcoal/50 hover:bg-charcoal/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
   }
   .btn-on-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-ivory px-6 py-3 text-sm font-medium text-charcoal transition hover:bg-stone focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal;
@@ -51,14 +83,44 @@ body {
   .btn-ghost-on-dark {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-ivory/25 px-6 py-3 text-sm font-medium text-ivory transition hover:border-ivory/60 hover:bg-ivory/5;
   }
+  .btn-link {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-charcoal underline decoration-gold decoration-2 underline-offset-[6px] transition hover:decoration-charcoal;
+  }
+  .btn-link-on-dark {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-ivory underline decoration-gold-soft decoration-2 underline-offset-[6px] transition hover:decoration-ivory;
+  }
+
   .hairline {
     @apply border-t border-charcoal/10;
   }
+  .hairline-gold {
+    @apply border-t border-gold/30;
+  }
+  .num-marker {
+    @apply font-serif text-sm text-gold tracking-[0.18em];
+  }
+  .display-num {
+    @apply font-serif text-charcoal/15 leading-none;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-feature-settings: "lnum";
+  }
+  .display-num-on-dark {
+    @apply font-serif text-ivory/15 leading-none;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+
   .card-ivory {
     @apply rounded-2xl border border-charcoal/10 bg-white p-7 shadow-card;
   }
-  .num-marker {
-    @apply font-serif text-sm text-gold tracking-widest;
+
+  .term-row {
+    @apply grid gap-2 border-t border-ivory/15 py-5 sm:grid-cols-[160px_1fr];
+  }
+  .term-row dt {
+    @apply text-[11px] uppercase tracking-[0.22em] text-ivory/55;
+  }
+  .term-row dd {
+    @apply text-ivory/90;
   }
 }
 
@@ -68,5 +130,17 @@ body {
   }
   .text-pretty {
     text-wrap: pretty;
+  }
+  .grain {
+    background-image:
+      radial-gradient(rgba(23, 23, 23, 0.025) 1px, transparent 1px),
+      radial-gradient(rgba(23, 23, 23, 0.02) 1px, transparent 1px);
+    background-position: 0 0, 12px 12px;
+    background-size: 24px 24px;
+  }
+  .grain-dark {
+    background-image:
+      radial-gradient(rgba(248, 245, 239, 0.035) 1px, transparent 1px);
+    background-size: 22px 22px;
   }
 }

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 type Props = {
   eyebrow?: string;
   headline: string;
+  italicTail?: string;
   copy?: string;
   buttonText: string;
   buttonHref: string;
@@ -14,6 +15,7 @@ type Props = {
 export function CTASection({
   eyebrow,
   headline,
+  italicTail,
   copy,
   buttonText,
   buttonHref,
@@ -25,30 +27,59 @@ export function CTASection({
     <section
       className={
         isDark
-          ? "bg-charcoal text-ivory"
+          ? "relative overflow-hidden bg-charcoal text-ivory"
           : "bg-ivory text-charcoal border-y border-charcoal/10"
       }
     >
-      <div className="container-tight py-20 md:py-28">
-        <div className="grid items-end gap-10 md:grid-cols-12">
+      {isDark && (
+        <>
+          <div className="absolute inset-0 -z-0 grain-dark opacity-50" aria-hidden />
+          <div
+            className="absolute inset-0 -z-0"
+            aria-hidden
+            style={{
+              background:
+                "radial-gradient(700px 380px at 80% 30%, rgba(185,151,91,0.16), transparent 60%)",
+            }}
+          />
+        </>
+      )}
+      <div className="container-tight relative py-24 md:py-32">
+        <div className="grid items-end gap-12 md:grid-cols-12">
           <div className="md:col-span-8">
             {eyebrow && (
               <p
-                className={`eyebrow ${
-                  isDark ? "text-gold-soft" : "text-gold"
-                }`}
+                className={
+                  isDark
+                    ? "section-tag-gold !text-gold-soft"
+                    : "section-tag-gold"
+                }
               >
                 {eyebrow}
               </p>
             )}
-            <h2 className={`mt-3 h-display text-3xl sm:text-4xl md:text-5xl text-balance ${
-              isDark ? "text-ivory" : "text-charcoal"
-            }`}>
+            <h2
+              className={`mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl ${
+                isDark ? "text-ivory" : "text-charcoal"
+              }`}
+            >
               {headline}
+              {italicTail && (
+                <>
+                  {" "}
+                  <span
+                    className={`font-serif italic font-normal ${
+                      isDark ? "text-ivory/95" : "text-charcoal/90"
+                    }`}
+                  >
+                    {italicTail}
+                  </span>
+                </>
+              )}
             </h2>
             {copy && (
               <p
-                className={`mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-pretty ${
+                className={`mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-pretty ${
                   isDark ? "text-ivory/70" : "text-charcoal/70"
                 }`}
               >

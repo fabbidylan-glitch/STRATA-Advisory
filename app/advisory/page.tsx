@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { SectionHeading } from "@/components/SectionHeading";
-import { AdvisoryCard } from "@/components/AdvisoryCard";
-import { CTASection } from "@/components/CTASection";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { CTASection } from "@/components/CTASection";
 
 export const metadata: Metadata = {
   title: "Advisory | STRATA Engagement",
@@ -50,13 +48,15 @@ export default function AdvisoryPage() {
       <section className="bg-ivory">
         <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
           <div className="max-w-3xl">
-            <p className="eyebrow">Advisory Engagement</p>
-            <h1 className="mt-4 h-display text-4xl text-balance sm:text-5xl md:text-6xl">
-              STR advisory for investors who want the numbers, tax strategy, and
-              launch plan aligned.
+            <p className="eyebrow-rule">Advisory Engagement</p>
+            <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
+              STR advisory for investors who want{" "}
+              <span className="h-display-italic">
+                the numbers, tax strategy, and launch plan aligned.
+              </span>
             </h1>
-            <p className="mt-6 text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
-              A defined engagement with a defined scope — investor profile
+            <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
+              A defined engagement with defined scope &mdash; investor profile
               review, deal underwriting, tax strategy mapping, cost segregation
               coordination, and launch support.
             </p>
@@ -66,63 +66,102 @@ export default function AdvisoryPage() {
 
       <section className="border-y border-charcoal/10 bg-white">
         <div className="container-wide py-20 md:py-28">
-          <SectionHeading
-            eyebrow="What's Included"
-            title="The advisory work, defined."
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="max-w-3xl">
+            <p className="section-tag-gold">Section 01 — Scope</p>
+            <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
+              The advisory work,{" "}
+              <span className="h-display-italic">defined.</span>
+            </h2>
+          </div>
+          <div className="mt-14 grid border-t border-charcoal/15 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
-              <AdvisoryCard
+              <div
                 key={s.title}
-                num={`0${i + 1}`}
-                title={s.title}
-                description={s.description}
-              />
+                className={`border-b border-charcoal/15 p-7 lg:p-8 ${
+                  i % 3 !== 2 ? "lg:border-r" : ""
+                } ${i % 2 !== 1 ? "sm:border-r lg:border-r" : ""}`}
+              >
+                <span className="num-marker">0{i + 1}</span>
+                <h3 className="mt-3 h-display text-xl text-charcoal sm:text-2xl">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-charcoal/70 text-pretty">
+                  {s.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-charcoal text-ivory">
-        <div className="container-wide py-20 md:py-28">
-          <div className="grid items-center gap-12 md:grid-cols-12">
+      {/* Term sheet section */}
+      <section className="relative overflow-hidden bg-charcoal text-ivory">
+        <div className="absolute inset-0 -z-0 grain-dark opacity-60" aria-hidden />
+        <div className="container-wide relative py-24 md:py-32">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
-              <SectionHeading
-                eyebrow="Engagement Fee"
-                title="Starting at $7,500 per property."
-                description="Advisory engagements generally start at $7,500 per property, structured as 50% upfront and 50% upon closing. Third-party costs are billed separately."
-                tone="dark"
-              />
+              <p className="section-tag-gold !text-gold-soft">
+                Section 02 — Engagement Fee
+              </p>
+              <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl text-ivory">
+                Starting at{" "}
+                <span className="h-display-italic text-ivory">$7,500 per property.</span>
+              </h2>
+              <p className="mt-6 max-w-md text-ivory/70 leading-relaxed text-pretty">
+                Advisory engagements are structured as a clear fee for clear
+                scope &mdash; 50% upfront, 50% upon closing. Third-party costs
+                are billed separately by their providers.
+              </p>
             </div>
+
             <div className="md:col-span-7">
-              <div className="rounded-2xl border border-ivory/15 bg-ink/40 p-8 sm:p-10">
-                <div className="grid gap-8 sm:grid-cols-2">
+              <div className="rounded-2xl border border-ivory/15 bg-ink/40 p-7 sm:p-9">
+                <div className="flex items-center justify-between border-b border-ivory/15 pb-5">
+                  <span className="text-[10px] uppercase tracking-[0.28em] text-ivory/55">
+                    Term Sheet
+                  </span>
+                  <span className="font-serif text-[11px] tracking-[0.18em] text-gold-soft">
+                    STRATA / Advisory
+                  </span>
+                </div>
+                <div className="mt-6 grid items-end gap-8 sm:grid-cols-2">
                   <div>
-                    <p className="eyebrow text-gold-soft">Fee</p>
-                    <p className="mt-3 font-serif text-4xl text-ivory">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-gold-soft">
+                      Fee
+                    </p>
+                    <p className="mt-3 font-serif text-5xl leading-none text-ivory">
                       $7,500
                     </p>
-                    <p className="mt-1 text-sm text-ivory/65">per property, starting</p>
+                    <p className="mt-2 text-sm text-ivory/65">
+                      per property, starting
+                    </p>
                   </div>
                   <div>
-                    <p className="eyebrow text-gold-soft">Payment</p>
-                    <p className="mt-3 font-serif text-2xl text-ivory">
-                      50% upfront
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-gold-soft">
+                      Payment
                     </p>
-                    <p className="mt-1 text-sm text-ivory/65">
-                      Balance due upon closing.
+                    <p className="mt-3 font-serif text-3xl leading-none text-ivory">
+                      50 / 50
+                    </p>
+                    <p className="mt-2 text-sm text-ivory/65">
+                      Upfront and at closing
                     </p>
                   </div>
                 </div>
-                <div className="mt-8 border-t border-ivory/15 pt-6 text-sm text-ivory/65">
+                <p className="mt-8 border-t border-ivory/15 pt-6 text-sm leading-relaxed text-ivory/65">
                   Third-party costs may include cost segregation studies,
                   property management, furnishing, legal, lending, inspections,
-                  and other property-specific costs.
-                </div>
-                <div className="mt-8">
+                  and other property-specific costs &mdash; billed separately
+                  by their providers.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
                   <Link href="/contact" className="btn-on-dark">
                     Discuss Your STR Investment
                     <ArrowRight size={16} />
+                  </Link>
+                  <Link href="/process" className="btn-link-on-dark">
+                    See the process
+                    <ArrowUpRight size={14} />
                   </Link>
                 </div>
               </div>
@@ -133,7 +172,8 @@ export default function AdvisoryPage() {
 
       <CTASection
         eyebrow="Next Step"
-        headline="Tell us about the deal."
+        headline="Tell us about"
+        italicTail="the deal."
         copy="Share property, price range, and your tax situation. We'll review fit before scheduling."
         buttonText="Start the Conversation"
         buttonHref="/contact"
