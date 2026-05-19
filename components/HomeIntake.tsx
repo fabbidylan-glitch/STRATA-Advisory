@@ -13,7 +13,7 @@ export function HomeIntake() {
   };
 
   return (
-    <section className="bg-ivory">
+    <section className="border-t border-charcoal/10 bg-ivory">
       <div className="container-wide py-24 md:py-32">
         <div className="max-w-3xl">
           <p className="section-tag-gold">Section 10 &mdash; Begin</p>

@@ -23,7 +23,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 grain opacity-60" aria-hidden />
 
       <div className="container-wide pb-20 pt-14 sm:pt-20 md:pb-32 md:pt-24">
-        <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+        <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Left — editorial copy */}
           <div className="lg:col-span-7">
             <p className="eyebrow-rule">A FABBI Advisory Practice</p>

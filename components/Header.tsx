@@ -26,7 +26,7 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-40 transition-all ${
-        scrolled
+        scrolled || open
           ? "bg-ivory/90 backdrop-blur border-b border-charcoal/10"
           : "bg-transparent border-b border-transparent"
       }`}
