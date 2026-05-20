@@ -24,66 +24,74 @@ export function Header() {
     };
   }, [open]);
 
+  // Close the drawer on route change.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/92 backdrop-blur">
-      <div className="container-page flex h-20 items-center justify-between md:h-24">
-        <Link href="/" className="flex items-center gap-3.5">
-          <StrataMark size={34} />
-          <span className="wordmark text-xl text-primary md:text-[1.4rem]">
-            STRATA
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
-          {nav.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`text-[0.72rem] font-medium uppercase tracking-[0.22em] transition-colors hover:text-primary ${
-                  active ? "text-primary" : "text-ink/75"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="hidden lg:block">
-          <Link href="/contact" className="cta-primary">
-            Send a Property
+    <>
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/92 backdrop-blur">
+        <div className="container-page flex h-20 items-center justify-between md:h-24">
+          <Link href="/" className="flex items-center gap-3.5">
+            <StrataMark size={34} />
+            <span className="wordmark text-xl text-primary md:text-[1.4rem]">
+              STRATA
+            </span>
           </Link>
+
+          <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+            {nav.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-[0.72rem] font-medium uppercase tracking-[0.22em] transition-colors hover:text-primary ${
+                    active ? "text-primary" : "text-ink/75"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="hidden lg:block">
+            <Link href="/contact" className="cta-primary">
+              Send a Property
+            </Link>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen(true)}
+            className="rounded-md p-2 text-primary lg:hidden"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
         </div>
+      </header>
 
-        <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen(true)}
-          className="rounded-md p-2 text-primary lg:hidden"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M4 7h16M4 12h16M4 17h16"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile drawer */}
+      {/* Mobile drawer — rendered OUTSIDE <header> so the header's
+          backdrop-filter doesn't trap this fixed element in the bar. */}
       <div
         id="mobile-nav"
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
-        className={`fixed inset-0 z-50 lg:hidden ${
+        className={`fixed inset-0 z-[60] lg:hidden ${
           open ? "" : "pointer-events-none"
         }`}
       >
@@ -133,23 +141,30 @@ export function Header() {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between rounded-md bg-surface px-3 py-4 text-lg font-semibold uppercase tracking-[0.22em] text-primary"
+                  aria-current={pathname === "/" ? "page" : undefined}
+                  className="flex items-center justify-between rounded-md bg-surface px-3 py-4 text-lg font-semibold uppercase tracking-[0.18em] text-primary"
                 >
                   <span>Home</span>
                   <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
                 </Link>
               </li>
-              {nav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-between rounded-md px-3 py-4 text-lg font-medium uppercase tracking-[0.22em] text-ink/80 transition-colors hover:bg-surface hover:text-primary"
-                  >
-                    <span>{item.label}</span>
-                  </Link>
-                </li>
-              ))}
+              {nav.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={`flex items-center justify-between rounded-md px-3 py-4 text-lg font-medium uppercase tracking-[0.18em] transition-colors hover:bg-surface hover:text-primary ${
+                        active ? "bg-surface text-primary" : "text-ink/80"
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -171,6 +186,6 @@ export function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
