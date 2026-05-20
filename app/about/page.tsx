@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeIn } from "@/components/motion";
+import { FounderPhoto } from "@/components/FounderPhoto";
 
 export const metadata: Metadata = {
   title: "About | A Buy-Side Brain and an Operating Team",
@@ -163,12 +164,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-7">
             <div className="flex items-start gap-5">
-              <div
-                aria-hidden
-                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-md border border-border bg-cream font-serif text-2xl text-primary"
-              >
-                DF
-              </div>
+              <FounderPhoto />
               <div>
                 <p className="font-serif text-xl text-primary sm:text-2xl">
                   Dylan Fabbi, CPA
