@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 import { CompImage } from "@/components/CompImage";
+
+export const metadata: Metadata = {
+  title: "STR Deal Underwriting, Tax Strategy & Operations",
+  description:
+    "STRATA underwrites short-term rental deals before you buy, models the tax strategy, and runs the unit against the same pro forma after launch.",
+};
 
 const comps = [
   {
@@ -170,11 +178,13 @@ export default function HomePage() {
           </Stagger>
 
           <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:min-h-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=88&auto=format&fit=crop"
               alt="Short-term rental property reviewed for underwriting"
-              className="hero-photo absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+              fill
+              priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="hero-photo object-cover object-[50%_35%]"
             />
             {/* navy scrim so the photo blends into the brand, not raw stock */}
             <div
@@ -291,30 +301,36 @@ export default function HomePage() {
       {/* Advisory + Hospitality */}
       <section className="bg-background">
         <div className="container-page section-pad">
-          <FadeIn className="mx-auto max-w-[62ch]">
+          <FadeIn className="max-w-[62ch]">
             <p className="label-rule">The model</p>
             <h2 className="h2 mt-5">Advisory + Hospitality.</h2>
-            <div className="mt-10 space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
-              <p>
-                <span className="font-semibold text-primary">
-                  Advisory is before closing.
-                </span>{" "}
-                Deal underwriting, tax modeling, cost segregation, and a clear
-                recommendation.
-              </p>
-              <p>
-                <span className="font-semibold text-primary">
-                  Hospitality is after closing.
-                </span>{" "}
-                Unit setup, listing, pricing, guest operations, and owner
-                reporting.
-              </p>
-              <p className="pt-2 text-ink/75">
-                The point is simple. The person reviewing the deal and the
-                person running the unit should be working from the same numbers.
-              </p>
-            </div>
+            <p className="mt-5 text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
+              The person reviewing the deal and the person running the unit
+              should be working from the same numbers.
+            </p>
           </FadeIn>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <FadeIn className="rounded-md border border-border bg-surface p-7 sm:p-8">
+              <p className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-accent-deep">
+                Before closing
+              </p>
+              <h3 className="h3 mt-3 text-primary">Advisory</h3>
+              <p className="mt-3 text-[15px] leading-[1.6] text-ink/75">
+                Deal underwriting, tax modeling, cost segregation, and a clear
+                recommendation to buy, renegotiate, or walk away.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1} className="rounded-md border border-border bg-surface p-7 sm:p-8">
+              <p className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-sage-deep">
+                After closing
+              </p>
+              <h3 className="h3 mt-3 text-primary">Hospitality</h3>
+              <p className="mt-3 text-[15px] leading-[1.6] text-ink/75">
+                Unit setup, listing, pricing, guest operations, and owner
+                reporting, all managed against the original pro forma.
+              </p>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { StrataMark } from "@/components/StrataMark";
 
@@ -14,6 +15,7 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -33,15 +35,21 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-[0.72rem] font-medium uppercase tracking-[0.22em] text-ink/75 transition-colors hover:text-primary"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`text-[0.72rem] font-medium uppercase tracking-[0.22em] transition-colors hover:text-primary ${
+                  active ? "text-primary" : "text-ink/75"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:block">

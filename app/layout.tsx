@@ -1,8 +1,29 @@
 import type { Metadata } from "next";
+import { Inter, Playfair_Display, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { site } from "@/lib/site";
+
+const sans = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const serif = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-serif",
+  display: "swap",
+});
+const mono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -10,9 +31,8 @@ export const metadata: Metadata = {
       "STRATA Advisory & Hospitality | STR Deal Underwriting, Tax Strategy & Operations",
     template: "%s | STRATA",
   },
-  description:
-    "STRATA helps short-term rental investors underwrite deals, model tax strategy, coordinate cost segregation, launch guest-ready units, and manage STR operations against the pro forma.",
-  metadataBase: new URL("https://strata-advisory.vercel.app"),
+  description: site.description,
+  metadataBase: new URL(site.url),
   keywords: [
     "short-term rental underwriting",
     "STR tax strategy",
@@ -31,8 +51,25 @@ export const metadata: Metadata = {
     siteName: "STRATA",
     locale: "en_US",
     type: "website",
+    url: site.url,
   },
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "STRATA",
+  description: site.description,
+  url: site.url,
+  email: site.email,
+  areaServed: "US",
+  serviceType: [
+    "Short-term rental deal underwriting",
+    "STR tax strategy and cost segregation coordination",
+    "Short-term rental hospitality operations",
+  ],
 };
 
 export default function RootLayout({
@@ -41,13 +78,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=DM+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
+        {/* If JS fails to run, reveal elements that motion left hidden */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-background font-sans text-ink antialiased">

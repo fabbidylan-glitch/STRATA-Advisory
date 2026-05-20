@@ -30,15 +30,31 @@ const labelCls =
 const inputCls =
   "mt-2 w-full rounded-sm border border-border bg-background px-3.5 py-2.5 text-[0.92rem] text-ink placeholder:text-ink/35 transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
 
-export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "sending" | "sent" | "error";
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   };
 
-  if (submitted) {
+  if (status === "sent") {
     return (
       <div className="rounded-md border border-border bg-surface p-8 shadow-card sm:p-10">
         <p className={labelCls} aria-live="polite">
@@ -125,13 +141,23 @@ export function ContactForm() {
         </label>
       </div>
 
+      {status === "error" && (
+        <p className="mt-5 rounded-sm border border-critical/30 bg-critical/[0.08] px-4 py-3 text-[0.82rem] text-critical">
+          Something went wrong sending your inquiry. Please try again, or email{" "}
+          <a href="mailto:hello@stratacap.com" className="underline">hello@stratacap.com</a>.
+        </p>
+      )}
       <div className="mt-7 flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-[44ch] text-[0.72rem] leading-[1.5] text-ink/55">
           By submitting, you agree to be contacted by STRATA about your inquiry.
           We don&rsquo;t share or sell your information.
         </p>
-        <button type="submit" className="cta-primary shrink-0">
-          Send a Property
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="cta-primary shrink-0 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {status === "sending" ? "Sending..." : "Send a Property"}
         </button>
       </div>
     </form>
