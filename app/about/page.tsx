@@ -176,15 +176,18 @@ export default function AboutPage() {
             </div>
             <div className="mt-7 space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
               <p>
-                STRATA is led by Dylan Fabbi, a CPA and active short-term rental
-                investor. He underwrites the deals and oversees how the
-                properties are run, so the advisory side and the operating side
-                report off the same pro forma.
+                STRATA is led by Dylan Fabbi, a CPA with a background across
+                tax, accounting, consulting, and bookkeeping. He has worked with
+                real estate investors, hedge funds, private equity,
+                high-net-worth individuals, trusts, and estates, including gift
+                tax.
               </p>
               <p>
-                Every engagement is reviewed before it goes to an investor. If
-                the deal doesn&rsquo;t pencil, the recommendation is to walk
-                away.
+                At STRATA he underwrites the deals and stays close to how the
+                properties are run, so the advisory side and the operating side
+                report off the same pro forma. Every engagement is reviewed
+                before it goes to an investor. If the deal doesn&rsquo;t pencil,
+                the recommendation is to walk away.
               </p>
             </div>
           </FadeIn>
