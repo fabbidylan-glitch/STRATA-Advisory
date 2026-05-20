@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Tax Strategy | STR Cost Segregation & Depreciation",
@@ -122,7 +123,7 @@ export default function TaxStrategyPage() {
 
           <div className="mt-14 border-t border-border">
             {concepts.map((c) => (
-              <div
+              <FadeIn
                 key={c.num}
                 className="grid gap-6 border-b border-border py-10 md:grid-cols-12 md:gap-10"
               >
@@ -137,7 +138,7 @@ export default function TaxStrategyPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -170,10 +171,10 @@ export default function TaxStrategyPage() {
               ["Coordinated", "We work alongside your CPA, attorney, and lender, not around them. Tax strategy lives downstream of the right team."],
               ["Realistic", "We won't promise tax savings. We'll tell you what's plausible given your facts and what it would take to get there."],
             ].map(([t, b]) => (
-              <div key={t} className="border-t border-border pt-6">
+              <FadeIn key={t} className="border-t border-border pt-6">
                 <h3 className="h3 text-primary">{t}</h3>
                 <p className="mt-3 text-[15px] leading-[1.6] text-ink/70">{b}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>

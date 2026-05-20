@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Hospitality | STR Launch & Operations",
@@ -111,7 +112,7 @@ export default function HospitalityPage() {
       <section className="border-t border-border bg-background">
         <div className="container-page">
           {steps.map((s) => (
-            <div
+            <FadeIn
               key={s.num}
               className="grid gap-6 border-b border-border py-12 md:grid-cols-12 md:gap-10 md:py-16"
             >
@@ -136,7 +137,7 @@ export default function HospitalityPage() {
                   ))}
                 </div>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </section>

@@ -1,5 +1,24 @@
 import Link from "next/link";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
+import { CompImage } from "@/components/CompImage";
+
+const comps = [
+  {
+    name: "Smoky Mountains, TN",
+    img: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=800&q=80&auto=format&fit=crop",
+    body: "4 bed cabin. Revenue range reviewed roughly $95K to $108K. Local rules open. Setup standard.",
+  },
+  {
+    name: "Scottsdale, AZ",
+    img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format&fit=crop",
+    body: "5 bed pool home. Summer rate softness. Permit required. Tax angle moderate.",
+  },
+  {
+    name: "Destin, FL",
+    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop",
+    body: "4 bed coastal. March to August carries most of the year. Storm-season softness. Permit required.",
+  },
+];
 
 function PfRow({
   label,
@@ -449,27 +468,13 @@ export default function HomePage() {
               Other comps we&rsquo;ve recently reviewed
             </h4>
             <div className="mt-6 grid gap-8 sm:grid-cols-3 sm:gap-6">
-              <div>
-                <p className="text-[16px] font-semibold text-primary">Smoky Mountains, TN</p>
-                <p className="mt-1 text-[14px] leading-[1.55] text-ink/65">
-                  4 bed cabin. Revenue range reviewed roughly $95K to $108K.
-                  Local rules open. Setup standard.
-                </p>
-              </div>
-              <div>
-                <p className="text-[16px] font-semibold text-primary">Scottsdale, AZ</p>
-                <p className="mt-1 text-[14px] leading-[1.55] text-ink/65">
-                  5 bed pool home. Summer rate softness. Permit required. Tax
-                  angle moderate.
-                </p>
-              </div>
-              <div>
-                <p className="text-[16px] font-semibold text-primary">Destin, FL</p>
-                <p className="mt-1 text-[14px] leading-[1.55] text-ink/65">
-                  4 bed coastal. March to August carries most of the year.
-                  Storm-season softness. Permit required.
-                </p>
-              </div>
+              {comps.map((c) => (
+                <div key={c.name}>
+                  <CompImage src={c.img} alt={`${c.name} — illustrative market comp`} />
+                  <p className="mt-4 text-[16px] font-semibold text-primary">{c.name}</p>
+                  <p className="mt-1 text-[14px] leading-[1.55] text-ink/65">{c.body}</p>
+                </div>
+              ))}
             </div>
           </FadeIn>
 

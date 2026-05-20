@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { UnderwriteCalculator } from "@/components/UnderwriteCalculator";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Process | From First Look to First Guest",
@@ -92,7 +93,7 @@ export default function ProcessPage() {
       <section className="border-t border-border bg-background">
         <div className="container-page">
           {steps.map((s) => (
-            <div
+            <FadeIn
               key={s.num}
               className="grid gap-6 border-b border-border py-10 md:grid-cols-12 md:gap-10 md:py-12"
             >
@@ -113,7 +114,7 @@ export default function ProcessPage() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </section>
@@ -122,7 +123,7 @@ export default function ProcessPage() {
       <section className="bg-cream">
         <div className="container-page section-pad">
           <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-5">
+            <FadeIn className="md:col-span-5">
               <h2 className="h2 max-w-[16ch]">An illustrative underwrite.</h2>
               <p className="mt-6 max-w-[52ch] text-[16px] leading-[1.6] text-ink/75">
                 Adjust the inputs to see how purchase price, daily rate,
@@ -139,10 +140,10 @@ export default function ProcessPage() {
               <p className="mt-6 text-[13px] leading-[1.5] text-stone">
                 Illustrative only. Actual results vary.
               </p>
-            </div>
-            <div className="md:col-span-7">
+            </FadeIn>
+            <FadeIn delay={0.12} className="md:col-span-7">
               <UnderwriteCalculator />
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -156,10 +157,10 @@ export default function ProcessPage() {
               ["Coordinate Tax Before Closing", "Tax outcomes depend on structure, basis, financing, and timing. We bring the tax review into the underwrite, not after the deal closes."],
               ["Hand Off to Operations", "The day after closing matters. We help you slide into vendor relationships, listing setup, and monthly reporting with a clear plan."],
             ].map(([t, b]) => (
-              <div key={t} className="border-t border-border pt-6">
+              <FadeIn key={t} className="border-t border-border pt-6">
                 <h3 className="h3 text-primary">{t}</h3>
                 <p className="mt-3 text-[15px] leading-[1.6] text-ink/70">{b}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
   title: "Advisory | Deal Underwriting Before You Buy",
@@ -105,7 +106,7 @@ export default function AdvisoryPage() {
             </p>
           </div>
           <div className="md:col-span-7">
-            <div className="overflow-hidden rounded-md border border-border bg-surface shadow-card">
+            <FadeIn className="overflow-hidden rounded-md border border-border bg-surface shadow-card">
               <div className="border-b border-border bg-background/70 px-6 py-3.5 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-muted">
                 Underwriting summary
               </div>
@@ -136,7 +137,7 @@ export default function AdvisoryPage() {
                   </div>
                 ))}
               </dl>
-            </div>
+            </FadeIn>
             <p className="mt-4 text-[13px] leading-[1.5] text-stone">
               Illustrative only. Actual results vary.
             </p>
@@ -161,7 +162,7 @@ export default function AdvisoryPage() {
             </p>
           </div>
           <div className="md:col-span-7">
-            <div className="overflow-hidden rounded-md border border-border bg-surface shadow-card">
+            <FadeIn className="overflow-hidden rounded-md border border-border bg-surface shadow-card">
               <div className="border-b border-border bg-background/70 px-6 py-3.5 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-muted">
                 The deal checklist
               </div>
@@ -181,7 +182,7 @@ export default function AdvisoryPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </FadeIn>
             <p className="mt-4 max-w-[64ch] text-[13px] leading-[1.5] text-stone">
               Illustrative only. Tax outcomes depend on income type, basis,
               financing, material participation, state rules, filing position,
@@ -209,7 +210,7 @@ export default function AdvisoryPage() {
               Sometimes the highest-value advice is not to buy the property.
             </p>
           </div>
-          <div className="md:col-span-7">
+          <FadeIn delay={0.1} className="md:col-span-7">
             <div className="rounded-md border border-background/15 bg-background/[0.04] p-6 backdrop-blur-sm sm:p-8">
               <div className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-accent-soft">
                 Decision mode &middot; Sample property
@@ -228,7 +229,7 @@ export default function AdvisoryPage() {
                 Illustrative &middot; Sample deal structure
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
