@@ -155,26 +155,24 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <section className="bg-background">
-        <div className="container-page section-pad grid gap-12 md:grid-cols-12 md:gap-16">
-          <FadeIn className="md:col-span-5">
+        <div className="container-page section-pad grid gap-10 md:grid-cols-12 md:items-start md:gap-14">
+          <FadeIn className="md:col-span-4">
+            <FounderPhoto />
+          </FadeIn>
+          <FadeIn delay={0.1} className="md:col-span-8">
             <p className="label-rule">Leadership</p>
-            <h2 className="h2 mt-5 max-w-[16ch]">
+            <h2 className="h2 mt-5 max-w-[20ch]">
               An investor on one side. An operator on the other.
             </h2>
-          </FadeIn>
-          <FadeIn delay={0.1} className="md:col-span-7">
-            <div className="flex items-start gap-5">
-              <FounderPhoto />
-              <div>
-                <p className="font-serif text-xl text-primary sm:text-2xl">
-                  Dylan Fabbi, CPA
-                </p>
-                <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-stone">
-                  Founder &middot; CPA &middot; Real estate investor
-                </p>
-              </div>
+            <div className="mt-6">
+              <p className="font-serif text-xl text-primary sm:text-2xl">
+                Dylan Fabbi, CPA
+              </p>
+              <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-stone">
+                Founder &middot; CPA &middot; Real estate investor
+              </p>
             </div>
-            <div className="mt-7 space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+            <div className="mt-6 space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
               <p>
                 STRATA is led by Dylan Fabbi, a CPA with a background across
                 tax, accounting, consulting, and bookkeeping. He has worked with
