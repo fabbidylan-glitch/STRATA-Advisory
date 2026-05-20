@@ -4,7 +4,8 @@
 
 :root {
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 html {
@@ -12,115 +13,133 @@ html {
 }
 
 body {
-  background-color: #f8f5ef;
-  color: #171717;
+  background-color: #f5f0e6;
+  color: #26323b;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "ss01", "cv11";
 }
 
 ::selection {
-  background: #b9975b;
-  color: #f8f5ef;
+  background: #b0824b;
+  color: #0f1b2d;
 }
 
 @layer components {
+  /* ---- Design B system ---- */
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10;
+  }
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+  .wordmark {
+    font-family: var(--font-serif);
+    @apply font-medium uppercase tracking-[0.2em];
+  }
+  .display {
+    font-family: var(--font-sans);
+    @apply font-bold tracking-tight;
+    font-size: clamp(2.3rem, 4.6vw, 3.5rem);
+    line-height: 1.04;
+  }
+  .h2 {
+    font-family: var(--font-serif);
+    @apply font-medium tracking-tight text-primary;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.12;
+  }
+  .h3 {
+    font-family: var(--font-serif);
+    @apply font-medium text-primary;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    line-height: 1.2;
+  }
+  .cta-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-[14px] text-[12px] font-medium uppercase tracking-[0.16em] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+    background-color: #b0824b;
+    color: #0f1b2d;
+  }
+  .cta-primary:hover {
+    background-color: #c49256;
+  }
+  .cta-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border px-6 py-[14px] text-[12px] font-medium uppercase tracking-[0.16em] transition-colors duration-200;
+  }
+
+  /* ---- Legacy (Design A) classes kept for inner pages ---- */
   .container-tight {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
   }
   .container-wide {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
   }
-  .container-prose {
-    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
-  }
-
   .h-display {
-    @apply font-serif font-medium tracking-tightest text-charcoal;
-    line-height: 1.02;
+    font-family: var(--font-serif);
+    @apply font-medium tracking-tight text-primary;
+    line-height: 1.04;
   }
   .h-display-italic {
-    @apply font-serif italic font-normal text-charcoal;
+    font-family: var(--font-serif);
+    @apply italic font-normal;
     line-height: 1.05;
   }
-
   .eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-gold;
+    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-accent-deep;
   }
   .eyebrow-rule {
-    @apply flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-gold;
+    @apply flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent-deep;
   }
   .eyebrow-rule::before {
     content: "";
-    @apply inline-block h-px w-8 bg-gold/60;
-  }
-
-  .section-tag {
-    @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-charcoal/55;
-  }
-  .section-tag::before {
-    content: "";
-    @apply inline-block h-px w-10 bg-charcoal/30;
+    @apply inline-block h-px w-8 bg-accent/60;
   }
   .section-tag-gold {
-    @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-gold;
+    @apply inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent-deep;
   }
   .section-tag-gold::before {
     content: "";
-    @apply inline-block h-px w-10 bg-gold/50;
+    @apply inline-block h-px w-10 bg-accent/50;
   }
-
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-charcoal px-6 py-3 text-sm font-medium text-ivory transition hover:bg-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-background transition hover:opacity-90;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 bg-transparent px-6 py-3 text-sm font-medium text-charcoal transition hover:border-charcoal/50 hover:bg-charcoal/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/5;
   }
   .btn-on-dark {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ivory px-6 py-3 text-sm font-medium text-charcoal transition hover:bg-stone focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-medium text-primary transition hover:bg-cream;
   }
   .btn-ghost-on-dark {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ivory/25 px-6 py-3 text-sm font-medium text-ivory transition hover:border-ivory/60 hover:bg-ivory/5;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-background/25 px-6 py-3 text-sm font-medium text-background transition hover:bg-background/10;
   }
   .btn-link {
-    @apply inline-flex items-center gap-2 text-sm font-medium text-charcoal underline decoration-gold decoration-2 underline-offset-[6px] transition hover:decoration-charcoal;
+    @apply inline-flex items-center gap-2 text-sm font-medium text-primary underline decoration-accent decoration-2 underline-offset-[6px] transition hover:decoration-primary;
   }
   .btn-link-on-dark {
-    @apply inline-flex items-center gap-2 text-sm font-medium text-ivory underline decoration-gold-soft decoration-2 underline-offset-[6px] transition hover:decoration-ivory;
-  }
-
-  .hairline {
-    @apply border-t border-charcoal/10;
-  }
-  .hairline-gold {
-    @apply border-t border-gold/30;
+    @apply inline-flex items-center gap-2 text-sm font-medium text-background underline decoration-accent-soft decoration-2 underline-offset-[6px];
   }
   .num-marker {
-    @apply font-serif text-sm text-gold tracking-[0.18em];
+    font-family: var(--font-serif);
+    @apply text-sm text-accent-deep tracking-[0.18em];
   }
   .display-num {
-    @apply font-serif text-charcoal/15 leading-none;
-    font-size: clamp(3.5rem, 8vw, 6rem);
-    font-feature-settings: "lnum";
-  }
-  .display-num-on-dark {
-    @apply font-serif text-ivory/15 leading-none;
+    font-family: var(--font-serif);
+    @apply text-primary/15 leading-none;
     font-size: clamp(3.5rem, 8vw, 6rem);
   }
-
-  .card-ivory {
-    @apply rounded-2xl border border-charcoal/10 bg-white p-7 shadow-card;
-  }
-
   .term-row {
-    @apply grid gap-2 border-t border-ivory/15 py-5 sm:grid-cols-[160px_1fr];
+    @apply grid gap-2 border-t border-background/15 py-5 sm:grid-cols-[160px_1fr];
   }
   .term-row dt {
-    @apply text-[11px] uppercase tracking-[0.22em] text-ivory/55;
+    @apply text-[11px] uppercase tracking-[0.22em] text-background/55;
   }
   .term-row dd {
-    @apply text-ivory/90;
+    @apply text-background/90;
+  }
+  .grain,
+  .grain-dark {
+    background: none;
   }
 }
 
@@ -130,17 +149,5 @@ body {
   }
   .text-pretty {
     text-wrap: pretty;
-  }
-  .grain {
-    background-image:
-      radial-gradient(rgba(23, 23, 23, 0.025) 1px, transparent 1px),
-      radial-gradient(rgba(23, 23, 23, 0.02) 1px, transparent 1px);
-    background-position: 0 0, 12px 12px;
-    background-size: 24px 24px;
-  }
-  .grain-dark {
-    background-image:
-      radial-gradient(rgba(248, 245, 239, 0.035) 1px, transparent 1px);
-    background-size: 22px 22px;
   }
 }
