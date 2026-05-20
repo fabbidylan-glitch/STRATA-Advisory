@@ -3,103 +3,76 @@ import { ContactForm } from "@/components/ContactForm";
 import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
-  title: "Book a Strategy Call",
+  title: "Contact | Send a Property",
   description:
-    "Let's review the STR opportunity before you commit capital. Request a STRATA review of the deal, the tax strategy, and the launch plan.",
+    "Tell us about the property, the market, or the investment thesis. We'll review the numbers, flag the risks, and discuss whether STRATA is the right fit.",
 };
-
-const expect = [
-  {
-    title: "Confidential review",
-    description:
-      "Your information is reviewed in private by the practice. Not added to a marketing list.",
-  },
-  {
-    title: "First-pass response",
-    description:
-      "A STRATA advisor reads the deal and replies within one business day with a short read on fit.",
-  },
-  {
-    title: "Strategy call",
-    description:
-      "A working call to discuss the property, the tax position, and the right next steps.",
-  },
-  {
-    title: "Engagement proposal",
-    description:
-      "If we're aligned, you receive a clear advisory engagement scope and fee. If not, we'll tell you on the call.",
-  },
-];
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="bg-ivory">
-        <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <FadeIn start="mount" className="max-w-3xl">
-            <p className="eyebrow-rule">Book a Call</p>
-            <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
-              Let&rsquo;s review the STR opportunity{" "}
-              <span className="h-display-italic">
-                before you commit capital
-              </span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
-              Share the property details and your tax situation. A STRATA
-              advisor will review your information and reach out within one
-              business day.
+    <section className="bg-background">
+      <div className="container-page section-pad">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+          {/* Left */}
+          <FadeIn start="mount" className="md:col-span-5">
+            <p className="label-rule">Contact</p>
+            <h1 className="display mt-6 text-primary">Send a property.</h1>
+            <p className="mt-6 max-w-[44ch] text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+              Tell us about the property, the market, or the investment thesis.
+              We&rsquo;ll review the numbers, flag the risks, and follow up to
+              discuss whether STRATA is the right fit.
             </p>
-          </FadeIn>
-        </div>
-      </section>
 
-      <section className="border-y border-charcoal/10 bg-white">
-        <div className="container-wide py-20 md:py-28">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-14">
-            <div className="md:col-span-5">
-              <p className="eyebrow">What to expect</p>
-              <ol className="mt-8 space-y-7">
-                {expect.map((e, i) => (
-                  <li
-                    key={e.title}
-                    className="grid grid-cols-[auto_1fr] gap-5"
-                  >
-                    <span className="display-num text-[3rem]">0{i + 1}</span>
-                    <div className="pt-2">
-                      <h3 className="h-display text-lg text-charcoal sm:text-xl">
-                        {e.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-charcoal/70 leading-relaxed">
-                        {e.description}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-
-              <div className="mt-10 rounded-xl border border-charcoal/10 bg-ivory p-6">
-                <p className="eyebrow">Engagements begin at</p>
-                <p className="mt-2 font-serif text-3xl text-charcoal">
-                  $7,500
+            <div className="mt-9 space-y-6">
+              <div>
+                <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-stone">
+                  What to expect
                 </p>
-                <p className="mt-1 text-xs text-charcoal/55">
-                  per property &mdash; 50% upfront, 50% upon closing.
-                  Third-party costs billed separately.
+                <p className="mt-2 max-w-[44ch] text-[0.92rem] leading-[1.55] text-ink/70">
+                  A 25&ndash;30 minute call to review your goals, tax profile,
+                  target market, and any property you&rsquo;re evaluating.
+                  Focused conversation. No pitch.
                 </p>
               </div>
+              <div>
+                <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-stone">
+                  Already have a property?
+                </p>
+                <p className="mt-2 max-w-[44ch] text-[0.92rem] leading-[1.55] text-ink/70">
+                  If you&rsquo;re actively looking at a deal, paste the listing
+                  link or address in the form. We&rsquo;ll come prepared with
+                  initial thoughts.
+                </p>
+              </div>
+              <div>
+                <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-stone">
+                  Direct
+                </p>
+                <a
+                  href="mailto:hello@stratacap.com"
+                  className="mt-2 inline-block text-[0.95rem] text-primary underline decoration-accent decoration-1 underline-offset-4 hover:decoration-primary"
+                >
+                  hello@stratacap.com
+                </a>
+              </div>
+            </div>
 
-              <p className="mt-6 text-xs text-charcoal/55 leading-relaxed">
-                Subject to professional review. Outcomes depend on facts and
-                circumstances.
+            <div className="mt-9 rounded-md border border-border bg-cream/60 px-5 py-4">
+              <p className="text-[0.78rem] leading-relaxed text-ink/65">
+                STRATA Advisory provides consulting and advisory services. We do
+                not provide legal, investment, brokerage, or tax advice unless
+                separately agreed in writing with properly licensed
+                professionals.
               </p>
             </div>
+          </FadeIn>
 
-            <div className="md:col-span-7">
-              <ContactForm />
-            </div>
-          </div>
+          {/* Right — form */}
+          <FadeIn delay={0.12} className="md:col-span-7">
+            <ContactForm />
+          </FadeIn>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

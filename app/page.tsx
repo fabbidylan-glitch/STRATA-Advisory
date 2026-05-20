@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FadeIn, Stagger, StaggerItem } from "@/components/motion";
 
 function PfRow({
   label,
@@ -108,45 +109,69 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary text-[#F4EFE4]">
+      <section className="relative overflow-hidden bg-primary text-[#F4EFE4]">
         <div className="grid lg:min-h-[640px] lg:grid-cols-2 lg:items-stretch">
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 md:px-14 md:py-[88px] lg:py-28 lg:pl-12 lg:pr-16 xl:pl-20 xl:pr-20">
+          <Stagger
+            start="mount"
+            stagger={0.12}
+            className="relative z-10 flex flex-col justify-center px-6 py-16 sm:px-10 md:px-14 md:py-[88px] lg:py-28 lg:pl-12 lg:pr-16 xl:pl-20 xl:pr-20"
+          >
+            <StaggerItem>
+              <p className="label-rule-soft">STR Investment Platform</p>
+            </StaggerItem>
             <div className="max-w-[36ch]">
-              <h1 className="display text-[#F4EFE4]">
-                <span className="block">We underwrite the deal.</span>
-                <span className="block">We structure the tax.</span>
-                <span className="block text-[#E3C99F]">We run the unit.</span>
-              </h1>
-              <p className="mt-8 max-w-[56ch] text-[16px] leading-[1.6] text-[#F4EFE4]/85 md:text-[17px]">
-                We review the property before you buy it. Then we help manage
-                the unit against the same numbers after launch.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link href="/contact" className="cta-primary">
-                  Send a Property
-                </Link>
-                <a
-                  href="#sample-underwrite"
-                  className="cta-outline text-[#F4EFE4] hover:bg-[#F4EFE4]/10"
-                  style={{ borderColor: "rgb(244 239 228 / 0.35)" }}
-                >
-                  See a Sample Underwrite
-                </a>
-              </div>
+              <StaggerItem>
+                <h1 className="display mt-7 text-[#F4EFE4]">
+                  <span className="block">We underwrite the deal.</span>
+                  <span className="block">We structure the tax.</span>
+                  <span className="block text-[#E3C99F]">We run the unit.</span>
+                </h1>
+              </StaggerItem>
+              <StaggerItem>
+                <p className="mt-8 max-w-[56ch] text-[16px] leading-[1.6] text-[#F4EFE4]/85 md:text-[17px]">
+                  We review the property before you buy it. Then we help manage
+                  the unit against the same numbers after launch.
+                </p>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <Link href="/contact" className="cta-primary">
+                    Send a Property
+                  </Link>
+                  <a
+                    href="#sample-underwrite"
+                    className="cta-outline text-[#F4EFE4] hover:bg-[#F4EFE4]/10"
+                    style={{ borderColor: "rgb(244 239 228 / 0.35)" }}
+                  >
+                    See a Sample Underwrite
+                  </a>
+                </div>
+              </StaggerItem>
             </div>
-          </div>
-          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-full">
+          </Stagger>
+
+          <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:min-h-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=88&auto=format&fit=crop"
-              alt="Short-term rental property with pool used as a sample STR underwriting visual"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+              alt="Short-term rental property reviewed for underwriting"
+              className="hero-photo absolute inset-0 h-full w-full object-cover object-[50%_35%]"
             />
+            {/* navy scrim so the photo blends into the brand, not raw stock */}
+            <div
+              className="absolute inset-0"
+              aria-hidden
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(15,27,45,0.92) 0%, rgba(15,27,45,0.30) 38%, rgba(15,27,45,0.05) 70%, rgba(15,27,45,0.18) 100%)",
+              }}
+            />
+            <div className="absolute inset-0 opacity-[0.12] mix-blend-soft-light noise" aria-hidden />
             <p
-              className="absolute bottom-4 right-4 max-w-[50ch] text-[12px] leading-[1.5] text-[#F4EFE4]/65 sm:bottom-6 sm:right-6"
-              style={{ textShadow: "0 1px 8px rgb(15 27 45 / 0.6)" }}
+              className="absolute bottom-4 right-4 z-10 max-w-[50ch] font-mono text-[11px] uppercase tracking-[0.18em] text-[#F4EFE4]/70 sm:bottom-6 sm:right-6"
+              style={{ textShadow: "0 1px 8px rgb(15 27 45 / 0.7)" }}
             >
-              Sample STR asset reviewed for underwriting.
+              Sample STR asset reviewed for underwriting
             </p>
           </div>
         </div>
@@ -155,8 +180,9 @@ export default function HomePage() {
       {/* Most STRs fail */}
       <section className="bg-background">
         <div className="container-page section-pad">
-          <div className="mx-auto max-w-[62ch]">
-            <h2 className="h2 max-w-[18ch]">Most STRs fail in two places.</h2>
+          <FadeIn className="mx-auto max-w-[62ch]">
+            <p className="label-rule">Why deals fail</p>
+            <h2 className="h2 mt-5 max-w-[18ch]">Most STRs fail in two places.</h2>
             <div className="mt-10 space-y-6 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
               <p>
                 First, the investor buys on optimistic revenue, light expenses,
@@ -168,7 +194,7 @@ export default function HomePage() {
               </p>
               <p className="text-primary">STRATA connects those two moments.</p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -176,8 +202,9 @@ export default function HomePage() {
       <section id="sample-underwrite" className="bg-cream">
         <div className="container-page section-pad">
           <div className="grid gap-14 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-4">
-              <h2 className="h2 max-w-[18ch]">
+            <FadeIn className="md:col-span-4">
+              <p className="label-rule">Sample underwrite</p>
+              <h2 className="h2 mt-5 max-w-[18ch]">
                 The numbers we model on every deal.
               </h2>
               <p className="mt-6 max-w-[56ch] text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
@@ -192,12 +219,12 @@ export default function HomePage() {
                   Send a Property
                 </Link>
               </div>
-              <p className="mt-10 text-[12px] uppercase tracking-[0.18em] text-stone">
+              <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.18em] text-stone">
                 Illustrative &middot; 4BR &middot; Pocono Mtns, PA
               </p>
-            </div>
+            </FadeIn>
 
-            <div className="min-w-0 md:col-span-8">
+            <FadeIn delay={0.12} className="min-w-0 md:col-span-8">
               <div className="overflow-x-auto rounded-md border border-border bg-surface shadow-card">
                 <div className="min-w-[460px]">
                   <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b border-border bg-background/70">
@@ -237,7 +264,7 @@ export default function HomePage() {
                 Illustrative only. Actual results depend on the property,
                 financing, market data, tax facts, participation, and execution.
               </p>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -245,8 +272,9 @@ export default function HomePage() {
       {/* Advisory + Hospitality */}
       <section className="bg-background">
         <div className="container-page section-pad">
-          <div className="mx-auto max-w-[62ch]">
-            <h2 className="h2">Advisory + Hospitality.</h2>
+          <FadeIn className="mx-auto max-w-[62ch]">
+            <p className="label-rule">The model</p>
+            <h2 className="h2 mt-5">Advisory + Hospitality.</h2>
             <div className="mt-10 space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
               <p>
                 <span className="font-semibold text-primary">
@@ -267,15 +295,17 @@ export default function HomePage() {
                 person running the unit should be working from the same numbers.
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Tax */}
-      <section className="bg-secondary-deep text-background">
-        <div className="container-page section-pad grid gap-14 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-5">
-            <h2 className="h2 max-w-[22ch] text-background">
+      <section className="relative overflow-hidden bg-secondary-deep text-background">
+        <div className="absolute inset-0 opacity-[0.06] mix-blend-soft-light noise" aria-hidden />
+        <div className="container-page section-pad relative grid gap-14 md:grid-cols-12 md:gap-16">
+          <FadeIn className="md:col-span-5">
+            <p className="label-rule-soft">Tax strategy</p>
+            <h2 className="h2 mt-5 max-w-[22ch] text-background">
               The tax strategy only works when the facts line up.
             </h2>
             <p className="mt-7 max-w-[56ch] text-[16px] leading-[1.6] text-background/75 md:text-[17px]">
@@ -303,8 +333,8 @@ export default function HomePage() {
                 Read the deep-dive &rarr;
               </Link>
             </div>
-          </div>
-          <div className="md:col-span-7">
+          </FadeIn>
+          <FadeIn delay={0.12} className="md:col-span-7">
             <div className="rounded-md border border-background/15 bg-background/[0.04] p-6 backdrop-blur-sm sm:p-8">
               <div className="flex items-baseline justify-between gap-3">
                 <div className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-accent-soft">
@@ -327,15 +357,16 @@ export default function HomePage() {
                 financing, market data, tax facts, participation, and execution.
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Manage against the model */}
       <section className="bg-background">
         <div className="container-page section-pad">
-          <div className="mx-auto max-w-[62ch]">
-            <h2 className="h2 max-w-[26ch]">
+          <FadeIn className="mx-auto max-w-[62ch]">
+            <p className="label-rule">After launch</p>
+            <h2 className="h2 mt-5 max-w-[26ch]">
               A model is only useful if someone manages against it.
             </h2>
             <p className="mt-7 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
@@ -343,10 +374,10 @@ export default function HomePage() {
               launch. If revenue drifts, cleaning costs creep, or reviews slip,
               the owner hears about it.
             </p>
-          </div>
+          </FadeIn>
 
-          <div className="mx-auto mt-14 max-w-[62ch] border-l-2 border-accent pl-6 md:mt-16 md:pl-8">
-            <p className="text-[13px] font-medium uppercase tracking-[0.18em] text-stone">
+          <FadeIn className="mx-auto mt-14 max-w-[62ch] border-l-2 border-accent pl-6 md:mt-16 md:pl-8">
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-stone">
               From a recent owner note
             </p>
             <p className="mt-3 text-[16px] leading-[1.6] text-ink/85 md:text-[17px]">
@@ -358,9 +389,9 @@ export default function HomePage() {
             <p className="mt-4 max-w-[58ch] text-[13px] leading-[1.5] text-stone">
               Illustrative only. Actual reports vary by property.
             </p>
-          </div>
+          </FadeIn>
 
-          <div className="mx-auto mt-16 max-w-[62ch] md:mt-20">
+          <FadeIn className="mx-auto mt-16 max-w-[62ch] md:mt-20">
             <h3 className="h3">The first 30 days</h3>
             <ul className="mt-6 grid gap-3 text-[16px] leading-[1.6] text-ink/80 sm:grid-cols-2 sm:gap-x-10">
               <li>Listing photos shot and uploaded</li>
@@ -377,22 +408,23 @@ export default function HomePage() {
                 See the Launch Plan
               </Link>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Examples / comps */}
       <section className="bg-cream">
         <div className="container-page section-pad">
-          <div className="mx-auto max-w-[62ch]">
-            <h2 className="h2 max-w-[18ch]">Examples of what we look at.</h2>
+          <FadeIn className="mx-auto max-w-[62ch]">
+            <p className="label-rule">Field notes</p>
+            <h2 className="h2 mt-5 max-w-[18ch]">Examples of what we look at.</h2>
             <p className="mt-6 text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
               These are illustrative market comps, not properties STRATA
               manages. They show the shape of the analysis, not the answer.
             </p>
-          </div>
+          </FadeIn>
 
-          <div className="mx-auto mt-14 max-w-[62ch] border-t border-border pt-10">
+          <FadeIn className="mx-auto mt-14 max-w-[62ch] border-t border-border pt-10">
             <h3 className="h3">Pocono Mountains, PA</h3>
             <p className="mt-1 text-[13px] text-stone">
               4 bed, sleeps 10. Sample featured comp.
@@ -410,10 +442,10 @@ export default function HomePage() {
                 </div>
               ))}
             </dl>
-          </div>
+          </FadeIn>
 
-          <div className="mx-auto mt-14 max-w-[62ch] border-t border-border pt-10">
-            <h4 className="text-[13px] font-semibold uppercase tracking-[0.18em] text-stone">
+          <FadeIn className="mx-auto mt-14 max-w-[62ch] border-t border-border pt-10">
+            <h4 className="font-mono text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-stone">
               Other comps we&rsquo;ve recently reviewed
             </h4>
             <div className="mt-6 grid gap-8 sm:grid-cols-3 sm:gap-6">
@@ -439,7 +471,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           <p className="mx-auto mt-12 max-w-[58ch] text-[13px] leading-[1.5] text-stone">
             Illustrative only. Actual results vary.
@@ -451,14 +483,15 @@ export default function HomePage() {
       <section className="bg-background">
         <div className="container-page section-pad">
           <div className="grid gap-14 md:grid-cols-[0.85fr_1.15fr] md:gap-20">
-            <div>
-              <h2 className="h2 max-w-[18ch]">Common questions from investors.</h2>
+            <FadeIn>
+              <p className="label-rule">FAQ</p>
+              <h2 className="h2 mt-5 max-w-[18ch]">Common questions from investors.</h2>
               <p className="mt-6 max-w-[56ch] text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
                 If something isn&rsquo;t covered here, the strategy call is the
                 fastest way to get a real answer.
               </p>
-            </div>
-            <ul className="border-t border-border">
+            </FadeIn>
+            <FadeIn delay={0.1} as="ul" className="border-t border-border">
               {faqs.map((item) => (
                 <li key={item.q} className="border-b border-border">
                   <details className="group py-6">
@@ -479,7 +512,7 @@ export default function HomePage() {
                   </details>
                 </li>
               ))}
-            </ul>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -487,8 +520,9 @@ export default function HomePage() {
       {/* Final CTA */}
       <section className="bg-background">
         <div className="container-page section-pad">
-          <div className="mx-auto max-w-[62ch]">
-            <h2 className="h2 max-w-[22ch]">Send us the property.</h2>
+          <FadeIn className="mx-auto max-w-[62ch]">
+            <p className="label-rule">Get started</p>
+            <h2 className="h2 mt-5 max-w-[22ch]">Send us the property.</h2>
             <p className="mt-6 text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
               We&rsquo;ll tell you what we see before you buy it.
             </p>
@@ -503,7 +537,7 @@ export default function HomePage() {
                 View the Process &rarr;
               </Link>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
     </>

@@ -1,114 +1,242 @@
 import type { Metadata } from "next";
-import { CTASection } from "@/components/CTASection";
+import Link from "next/link";
 import { FadeIn } from "@/components/motion";
 
 export const metadata: Metadata = {
-  title: "About STRATA",
+  title: "About | A Buy-Side Brain and an Operating Team",
   description:
-    "STRATA was built because STR investors needed more than a property manager — a tax-aware advisory layer powered by FABBI.",
+    "STRATA was built to close the gap between the people who underwrite STR deals and the people who run them. The pro forma becomes the operating scorecard.",
 };
 
-const fabbiPillars = [
-  { label: "Tax planning", value: "For high-income investors" },
-  { label: "Accounting & bookkeeping", value: "Built for real estate operators" },
-  { label: "Advisory", value: "Quarterly and year-end" },
-  { label: "Coordination", value: "STR-specific vendor network" },
+const principles: { num: string; title: string; body: string }[] = [
+  {
+    num: "01",
+    title: "We work with capital, not products.",
+    body: "Hired by the investor. Not paid by lenders, operators, or vendors. Recommendations sit on the same side of the table as the person writing the check.",
+  },
+  {
+    num: "02",
+    title: "We say no to deals.",
+    body: "Most properties don't pencil under realistic assumptions. A clear “don't buy this” is often the most valuable output of a strategy call.",
+  },
+  {
+    num: "03",
+    title: "Advisory and operations are the same team.",
+    body: "The people who run the pro forma should sit close to the people who run the property. Otherwise the assumptions get lost between underwriting and launch.",
+  },
+];
+
+const weDo = [
+  "Review STR deals before closing",
+  "Pressure-check revenue and expense assumptions",
+  "Model the tax angle before purchase",
+  "Coordinate cost segregation planning",
+  "Build launch plans for guest-ready units",
+  "Manage performance against the pro forma",
+];
+
+const weDont = [
+  "Promise tax savings",
+  "Guarantee revenue or occupancy",
+  "Push every deal forward",
+  "Pretend every vacation home is an investment",
+  "Treat property management as separate from the underwriting",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-ivory">
-        <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <FadeIn start="mount" className="max-w-3xl">
-            <p className="eyebrow-rule">About</p>
-            <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
-              STRATA was built because STR investors needed{" "}
-              <span className="h-display-italic">more than a property manager</span>
+      {/* Hero */}
+      <section className="bg-background">
+        <div className="container-page section-pad">
+          <FadeIn start="mount">
+            <p className="label-rule">About STRATA</p>
+            <h1 className="display mt-6 max-w-[18ch] text-primary">
+              STR investing needs both a buy-side brain and an operating team.
             </h1>
+          </FadeIn>
+          <FadeIn delay={0.1} className="mt-10 grid gap-8 md:grid-cols-2 md:gap-16">
+            <p className="text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+              Most investors separate the people who analyze the deal from the
+              people who operate it. That creates a gap. The underwriter assumes
+              one level of revenue, expenses, cleaning cost, ADR, occupancy,
+              furnishing budget, and tax impact. Then the operator inherits a
+              property without knowing why those assumptions mattered.
+            </p>
+            <p className="text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+              STRATA was designed to close that gap. STRATA Advisory reviews the
+              property before capital is committed. STRATA Hospitality manages
+              the unit after launch. The pro forma does not disappear at
+              closing. It becomes the operating scorecard.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15} className="mt-10 rounded-md border border-border bg-cream/60 px-6 py-5">
+            <p className="max-w-[80ch] text-[15px] leading-[1.6] text-ink/75">
+              We do not sell courses. We do not push every deal. We review
+              properties and help operate the ones that make sense.
+            </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="border-y border-charcoal/10 bg-white">
-        <div className="container-tight py-24 md:py-32">
-          <div className="grid gap-14 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <p className="text-lg text-charcoal/80 leading-relaxed text-pretty sm:text-xl">
-                Most STR conversations start with occupancy, nightly rates, and
-                property management. But for high-income investors, the bigger
-                question is whether the investment actually works after taxes,
-                financing, launch costs, and operating complexity.
+      {/* How we work */}
+      <section className="border-y border-border bg-background">
+        <div className="container-page section-pad grid gap-14 md:grid-cols-12 md:gap-16">
+          <FadeIn className="md:col-span-5">
+            <p className="label-rule">How we work</p>
+            <h2 className="h2 mt-5 max-w-[16ch]">
+              Three things that shape every engagement.
+            </h2>
+          </FadeIn>
+          <div className="md:col-span-7">
+            {principles.map((p, i) => (
+              <FadeIn
+                key={p.num}
+                delay={i * 0.08}
+                className="grid grid-cols-[auto_1fr] gap-5 border-t border-border py-7 first:border-t-0 first:pt-0 md:gap-8"
+              >
+                <span className="font-mono text-[0.65rem] text-accent-deep">{p.num}</span>
+                <div>
+                  <h3 className="h3 text-primary">{p.title}</h3>
+                  <p className="mt-3 max-w-[60ch] text-[15px] leading-[1.6] text-ink/70">
+                    {p.body}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Scope of service */}
+      <section className="bg-cream">
+        <div className="container-page section-pad">
+          <FadeIn className="max-w-[62ch]">
+            <p className="label-rule">Scope of service</p>
+            <h2 className="h2 mt-5">What STRATA does. What STRATA doesn&rsquo;t.</h2>
+            <p className="mt-5 text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
+              Reputable advisory means being precise about your scope. We work
+              alongside licensed professionals. We don&rsquo;t replace them.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1} className="mt-12 overflow-hidden rounded-md border border-border bg-surface">
+            <div className="grid md:grid-cols-2">
+              <div className="border-b border-border md:border-b-0 md:border-r">
+                <div className="border-b border-border bg-background/70 px-6 py-3 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-sage-deep">
+                  We do
+                </div>
+                <ul>
+                  {weDo.map((item) => (
+                    <li key={item} className="flex items-start gap-3 border-b border-border px-6 py-3.5 text-[0.9rem] text-ink/80 last:border-b-0">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sage-deep" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className="border-b border-border bg-background/70 px-6 py-3 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-accent-deep">
+                  We don&rsquo;t
+                </div>
+                <ul>
+                  {weDont.map((item) => (
+                    <li key={item} className="flex items-start gap-3 border-b border-border px-6 py-3.5 text-[0.9rem] text-ink/65 last:border-b-0">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full border border-accent-deep/60" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="bg-background">
+        <div className="container-page section-pad grid gap-12 md:grid-cols-12 md:gap-16">
+          <FadeIn className="md:col-span-5">
+            <p className="label-rule">Leadership</p>
+            <h2 className="h2 mt-5 max-w-[16ch]">
+              An investor on one side. An operator on the other.
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.1} className="md:col-span-7">
+            <div className="space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+              <p>
+                STRATA was started by people who underwrite STR deals and people
+                who run STR properties. The advisory side reviews the numbers.
+                The hospitality side runs the asset. Both report off the same
+                pro forma.
               </p>
-              <p className="mt-6 text-lg text-charcoal/80 leading-relaxed text-pretty sm:text-xl">
-                STRATA was created to bring the tax, accounting, advisory, and
-                operational pieces into one process &mdash; so the deal is
-                evaluated the way an investor should evaluate it, not the way a
-                listing agent presents it.
+              <p>
+                Every engagement is overseen by the founders. Every underwrite
+                is reviewed before it goes to an investor. If the deal
+                doesn&rsquo;t pencil, the recommendation is to walk away.
               </p>
             </div>
-            <div className="md:col-span-5">
-              <div className="rounded-2xl border border-charcoal/15 bg-ivory p-7 sm:p-8">
-                <p className="eyebrow">In one sentence</p>
-                <p className="mt-4 font-serif text-2xl leading-snug text-charcoal sm:text-[1.6rem]">
-                  STRATA is the advisory layer around the investment &mdash;{" "}
-                  <span className="italic text-charcoal/70">
-                    not the cleaning calendar.
-                  </span>
-                </p>
-              </div>
+            <p className="mt-6 text-[13px] leading-[1.5] text-stone">
+              Detailed bios, credentials, and prior experience will be added
+              before launch.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Disclosures */}
+      <section className="bg-background">
+        <div className="container-page section-pad pt-0 grid gap-10 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
+            <p className="label-rule">Disclosures</p>
+            <h2 className="h2 mt-5">Plain-language disclosures.</h2>
+          </div>
+          <div className="space-y-4 md:col-span-7">
+            <div className="rounded-md border border-border bg-cream/60 px-6 py-5">
+              <p className="text-[0.82rem] leading-relaxed text-ink/65">
+                STRATA Advisory provides consulting and advisory services. We do
+                not provide legal, tax, investment, brokerage, or property
+                management services unless separately agreed in writing with
+                properly licensed professionals. All scenarios, calculators, and
+                figures shown on this site are illustrative and depend on each
+                investor&rsquo;s specific facts and circumstances.
+              </p>
+            </div>
+            <div className="rounded-md border border-border bg-cream/60 px-6 py-5">
+              <p className="text-[0.82rem] leading-relaxed text-ink/65">
+                Past performance, including illustrative scenarios, is not
+                indicative of future results. All investment and tax decisions
+                should be reviewed with the appropriate licensed advisors.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-ivory">
-        <div className="container-wide py-24 md:py-32">
-          <div className="grid gap-14 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
-              <p className="section-tag-gold">Powered by FABBI</p>
-              <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
-                An advisory firm{" "}
-                <span className="h-display-italic">behind every engagement</span>
-              </h2>
+      {/* CTA */}
+      <section className="bg-cream">
+        <div className="container-page section-pad">
+          <FadeIn className="mx-auto max-w-[62ch]">
+            <h2 className="h2 max-w-[20ch]">
+              Send a property. We&rsquo;ll tell you whether it pencils.
+            </h2>
+            <p className="mt-6 text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
+              A short strategy call is the cleanest way to understand whether our
+              underwriting and operating approach matches your situation.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-5">
+              <Link href="/contact" className="cta-primary">
+                Send a Property
+              </Link>
+              <Link
+                href="/process"
+                className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-primary"
+              >
+                View the Process &rarr;
+              </Link>
             </div>
-            <div className="md:col-span-7">
-              <p className="text-lg text-charcoal/75 leading-relaxed text-pretty">
-                FABBI supports business owners, real estate investors, and
-                high-income clients with tax planning, accounting, bookkeeping,
-                and advisory. STRATA applies that advisory mindset specifically
-                to short-term rental investments &mdash; and continues the
-                relationship through bookkeeping and year-end planning once the
-                property is live.
-              </p>
-
-              <div className="mt-10 grid divide-y divide-charcoal/15 border-y border-charcoal/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-                {fabbiPillars.map((c, i) => (
-                  <div
-                    key={c.label}
-                    className={`py-6 sm:py-7 ${i % 2 === 1 ? "sm:pl-8" : "sm:pr-8"} ${
-                      i >= 2 ? "sm:border-t sm:!divide-y-0" : ""
-                    }`}
-                  >
-                    <p className="eyebrow">{c.label}</p>
-                    <p className="mt-2 font-serif text-xl text-charcoal sm:text-2xl">
-                      {c.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
-
-      <CTASection
-        eyebrow="Let's Talk"
-        headline="Bring the full picture"
-        italicTail="to your STR investment"
-        buttonText="Book a Strategy Call"
-        buttonHref="/contact"
-      />
     </>
   );
 }

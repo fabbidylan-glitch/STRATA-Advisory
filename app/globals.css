@@ -141,6 +141,22 @@ body {
   .grain-dark {
     background: none;
   }
+
+  /* section label: small mono eyebrow with a rule */
+  .label-rule {
+    @apply inline-flex items-center gap-3 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-accent-deep;
+  }
+  .label-rule::before {
+    content: "";
+    @apply inline-block h-px w-7 bg-accent/55;
+  }
+  .label-rule-soft {
+    @apply inline-flex items-center gap-3 font-mono text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-accent-soft;
+  }
+  .label-rule-soft::before {
+    content: "";
+    @apply inline-block h-px w-7 bg-accent-soft/45;
+  }
 }
 
 @layer utilities {
@@ -149,5 +165,29 @@ body {
   }
   .text-pretty {
     text-wrap: pretty;
+  }
+
+  /* Subtle film grain — for dark sections / image overlays */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+}
+
+/* Hero photo: branded treatment + slow settle (reduced-motion safe) */
+.hero-photo {
+  filter: saturate(0.88) contrast(1.03);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo {
+    animation: heroSettle 16s ease-out forwards;
+  }
+  @keyframes heroSettle {
+    from {
+      transform: scale(1.07);
+    }
+    to {
+      transform: scale(1);
+    }
   }
 }

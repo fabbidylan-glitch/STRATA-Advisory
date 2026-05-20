@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -56,9 +57,11 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
