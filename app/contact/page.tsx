@@ -49,10 +49,10 @@ export default function ContactPage() {
                   Direct
                 </p>
                 <a
-                  href="mailto:hello@stratacap.com"
+                  href="mailto:info@strata.com"
                   className="mt-2 inline-block text-[0.95rem] text-primary underline decoration-accent decoration-1 underline-offset-4 hover:decoration-primary"
                 >
-                  hello@stratacap.com
+                  info@strata.com
                 </a>
               </div>
             </div>

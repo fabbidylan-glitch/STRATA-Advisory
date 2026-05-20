@@ -144,7 +144,7 @@ export function ContactForm() {
       {status === "error" && (
         <p className="mt-5 rounded-sm border border-critical/30 bg-critical/[0.08] px-4 py-3 text-[0.82rem] text-critical">
           Something went wrong sending your inquiry. Please try again, or email{" "}
-          <a href="mailto:hello@stratacap.com" className="underline">hello@stratacap.com</a>.
+          <a href="mailto:info@strata.com" className="underline">info@strata.com</a>.
         </p>
       )}
       <div className="mt-7 flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">

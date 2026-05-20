@@ -77,8 +77,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:hello@stratacap.com" className="transition-colors hover:text-background">
-                  hello@stratacap.com
+                <a href="mailto:info@strata.com" className="transition-colors hover:text-background">
+                  info@strata.com
                 </a>
               </li>
               <li>

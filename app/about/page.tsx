@@ -162,23 +162,35 @@ export default function AboutPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.1} className="md:col-span-7">
-            <div className="space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+            <div className="flex items-start gap-5">
+              <div
+                aria-hidden
+                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-md border border-border bg-cream font-serif text-2xl text-primary"
+              >
+                DF
+              </div>
+              <div>
+                <p className="font-serif text-xl text-primary sm:text-2xl">
+                  Dylan Fabbi, CPA
+                </p>
+                <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-stone">
+                  Founder &middot; CPA &middot; Real estate investor
+                </p>
+              </div>
+            </div>
+            <div className="mt-7 space-y-5 text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
               <p>
-                STRATA was started by people who underwrite STR deals and people
-                who run STR properties. The advisory side reviews the numbers.
-                The hospitality side runs the asset. Both report off the same
-                pro forma.
+                STRATA is led by Dylan Fabbi, a CPA and active short-term rental
+                investor. He underwrites the deals and oversees how the
+                properties are run, so the advisory side and the operating side
+                report off the same pro forma.
               </p>
               <p>
-                Every engagement is overseen by the founders. Every underwrite
-                is reviewed before it goes to an investor. If the deal
-                doesn&rsquo;t pencil, the recommendation is to walk away.
+                Every engagement is reviewed before it goes to an investor. If
+                the deal doesn&rsquo;t pencil, the recommendation is to walk
+                away.
               </p>
             </div>
-            <p className="mt-6 text-[13px] leading-[1.5] text-stone">
-              Detailed bios, credentials, and prior experience will be added
-              before launch.
-            </p>
           </FadeIn>
         </div>
       </section>

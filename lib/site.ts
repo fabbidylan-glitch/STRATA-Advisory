@@ -4,7 +4,7 @@ export const site = {
   // TODO: set the real production domain
   url: "https://strata-advisory.vercel.app",
   // TODO: set the real inbox
-  email: "hello@stratacap.com",
+  email: "info@strata.com",
   // TODO: set a real phone if desired
   phone: "",
   tagline: "STR investment platform",
