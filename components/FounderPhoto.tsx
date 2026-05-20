@@ -12,7 +12,7 @@ export function FounderPhoto() {
     return (
       <div
         aria-hidden
-        className="flex h-24 w-24 shrink-0 items-center justify-center rounded-md border border-border bg-cream font-serif text-2xl text-primary"
+        className="flex h-32 w-32 shrink-0 items-center justify-center rounded-md border border-border bg-cream font-serif text-3xl text-primary"
       >
         DF
       </div>
@@ -20,12 +20,12 @@ export function FounderPhoto() {
   }
 
   return (
-    <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md border border-border bg-white">
+    <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-md border border-border bg-white">
       <Image
         src="/dylan-fabbi.png"
         alt="Dylan Fabbi, founder of STRATA"
         fill
-        sizes="96px"
+        sizes="128px"
         className="object-cover object-top"
         onError={() => setOk(false)}
       />
