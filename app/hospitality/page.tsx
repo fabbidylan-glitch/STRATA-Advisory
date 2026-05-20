@@ -1,175 +1,172 @@
 import type { Metadata } from "next";
-import { CTASection } from "@/components/CTASection";
-import { FadeIn } from "@/components/motion";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Hospitality Partners | STRATA",
+  title: "Hospitality | STR Launch & Operations",
   description:
-    "STRATA coordinates the strategy. Hospitality partners handle guest experience, pricing, cleaning, and day-to-day operations.",
+    "STRATA Hospitality launches, operates, and optimizes short-term rentals so the asset performs the way the underwrite said it would.",
 };
 
-const strataHandles = [
-  "Investor profile and tax strategy",
-  "Deal underwriting and return modeling",
-  "Cost segregation and entity planning",
-  "Launch budget and vendor coordination",
-  "Books, KPIs, and ongoing advisory",
-];
-
-const partnerHandles = [
-  "Listing setup and channel management",
-  "Dynamic pricing and revenue management",
-  "Guest communication and reviews",
-  "Cleaning, turnover, and inspections",
-  "Day-to-day local operations",
-];
-
-const benefits = [
+const steps: { num: string; title: string; body: string; chips: string[] }[] = [
   {
-    title: "Strategy stays connected to operations.",
-    description:
-      "Underwriting assumptions are validated against real performance — and adjusted when the market shifts.",
+    num: "01",
+    title: "Setup & Furnishing",
+    body: "A property either reads as a designed stay or a furnished house. We treat setup as part of the investment. What guests actually book matters more than what looks good in isolation.",
+    chips: [
+      "Furnishing strategy aligned to ADR target and guest segment",
+      "Design direction with budget discipline",
+      "Vendor and installation coordination",
+      "Soft goods, kitchen, outdoor, and amenity scoping",
+    ],
   },
   {
-    title: "Tax position is supported by real records.",
-    description:
-      "Operating data flows into the books so participation, classification, and reporting stay defensible.",
+    num: "02",
+    title: "Listing & Photography",
+    body: "Listings carry the deal. We handle photography direction, copy, structure, and platform setup so the listing competes on the first scroll, not the third.",
+    chips: [
+      "Professional photography coordination and shot list",
+      "Listing copy written to convert, not just describe",
+      "Platform setup across Airbnb, Vrbo, and direct",
+      "Amenity, calendar, and rule configuration",
+    ],
   },
   {
-    title: "One coordinated team, not five vendors.",
-    description:
-      "Lender, insurance, PM partner, furnishing, and accounting are coordinated around the same investor outcome.",
+    num: "03",
+    title: "Pricing & Revenue Management",
+    body: "Dynamic pricing is the difference between an average year and a strong one. We manage rate, length-of-stay, lead time, and discounts continuously. Not on autopilot.",
+    chips: [
+      "Dynamic pricing with seasonality and event overlays",
+      "Length-of-stay and minimum-night strategy",
+      "Promotional and last-minute discount management",
+      "Ongoing rate testing and competitive monitoring",
+    ],
+  },
+  {
+    num: "04",
+    title: "Guest Operations",
+    body: "Guest experience drives reviews. Reviews drive ranking. Ranking drives revenue. We run operations with that loop in mind, not as a cost center.",
+    chips: [
+      "Pre-arrival, in-stay, and post-stay messaging",
+      "Inquiry response and screening protocols",
+      "Issue resolution and on-the-ground escalation",
+      "Review request workflow and response strategy",
+    ],
+  },
+  {
+    num: "05",
+    title: "Property Management",
+    body: "The execution layer behind every stay: cleaners scheduled, supplies stocked, maintenance handled, vendors held to standard. Run the property like a business, because it is one.",
+    chips: [
+      "Cleaner scheduling, oversight, and turnover quality control",
+      "Linen, supplies, and consumables management",
+      "Preventative maintenance and repair coordination",
+      "Vendor sourcing and standards enforcement",
+    ],
+  },
+  {
+    num: "06",
+    title: "Owner Reporting & Performance",
+    body: "You should know how the property is performing, what changed this month, and what we're doing about it. Reporting is monthly, plain-English, and tied to the underwrite you bought into.",
+    chips: [
+      "Monthly performance reporting against pro forma",
+      "Occupancy, ADR, RevPAR, and revenue tracking",
+      "Booking pace and forward-looking visibility",
+      "Quarterly strategy review and optimization plan",
+    ],
   },
 ];
 
 export default function HospitalityPage() {
   return (
     <>
-      <section className="bg-ivory">
-        <div className="container-wide pb-12 pt-20 md:pb-16 md:pt-28">
-          <FadeIn start="mount" className="max-w-3xl">
-            <p className="eyebrow-rule">Hospitality Partners</p>
-            <h1 className="mt-7 h-display text-[2.5rem] text-balance leading-[1.02] sm:text-5xl md:text-[3.75rem]">
-              A better STR investment needs{" "}
-              <span className="h-display-italic">both strategy and execution</span>
+      {/* Hero */}
+      <section className="bg-background">
+        <div className="container-page section-pad">
+          <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-accent-deep">
+            STRATA Hospitality
+          </p>
+          <div className="mt-6 grid gap-10 md:grid-cols-12 md:gap-16">
+            <h1 className="display text-primary md:col-span-7">
+              Turn the property into a performing asset.
             </h1>
-            <p className="mt-6 max-w-2xl text-base text-charcoal/70 sm:text-lg leading-relaxed text-pretty">
-              STRATA focuses on the advisory, financial, tax, and coordination
-              layer. For day-to-day guest operations, STRATA can coordinate
-              with hospitality and property management partners who handle
-              guest experience, pricing, cleaning, communication, and local
-              operations.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      <section className="border-y border-charcoal/10 bg-white">
-        <div className="container-wide py-24 md:py-32">
-          <div className="grid items-stretch overflow-hidden rounded-2xl border border-charcoal/15 bg-ivory md:grid-cols-2">
-            <div className="border-b border-charcoal/15 p-8 md:border-b-0 md:border-r md:p-10">
-              <p className="eyebrow">STRATA handles</p>
-              <ul className="mt-6 space-y-3">
-                {strataHandles.map((s) => (
-                  <li
-                    key={s}
-                    className="flex items-start gap-3 font-serif text-lg text-charcoal"
-                  >
-                    <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" aria-hidden />
-                    <span>{s}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="p-8 md:p-10">
-              <p className="eyebrow !text-charcoal/55">Partner handles</p>
-              <ul className="mt-6 space-y-3">
-                {partnerHandles.map((s) => (
-                  <li
-                    key={s}
-                    className="flex items-start gap-3 font-serif text-lg text-charcoal/80"
-                  >
-                    <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full border border-charcoal/40" aria-hidden />
-                    <span>{s}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="md:col-span-5">
+              <p className="text-[16px] leading-[1.6] text-ink/80 md:text-[17px]">
+                Once the numbers work, execution decides the outcome. STRATA
+                Hospitality launches, operates, and optimizes short-term rentals
+                so the asset performs the way the underwrite said it would.
+              </p>
+              <p className="mt-6 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-stone">
+                First 30 days
+              </p>
+              <p className="mt-2 text-[0.92rem] leading-[1.5] text-ink/70">
+                Listing photos, pricing rules, guest guide, cleaner assignment,
+                maintenance log, owner report.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-ivory">
-        <div className="container-wide py-24 md:py-32">
-          <div className="max-w-3xl">
-            <p className="section-tag-gold">Section 02 — How it Works</p>
-            <h2 className="mt-6 h-display text-[2rem] text-balance leading-[1.05] sm:text-4xl md:text-5xl">
-              Aligned on the{" "}
-              <span className="h-display-italic">same investor outcome</span>
-            </h2>
-            <p className="mt-6 text-charcoal/70 leading-relaxed text-pretty">
-              Property management partners are engaged separately by the
-              investor. STRATA stays the advisory layer &mdash; underwriting,
-              tax, and reporting &mdash; so the strategy keeps shape after
-              launch.
-            </p>
-          </div>
-
-          <div className="mt-14 border-t border-charcoal/15">
-            {benefits.map((b, i) => (
-              <div
-                key={b.title}
-                className="grid gap-6 border-b border-charcoal/15 py-8 md:grid-cols-12 md:gap-10 md:py-10"
-              >
-                <div className="md:col-span-4">
-                  <div className="flex items-baseline gap-5">
-                    <span className="display-num">0{i + 1}</span>
-                  </div>
-                </div>
-                <div className="md:col-span-8">
-                  <h3 className="h-display text-xl text-charcoal sm:text-2xl">
-                    {b.title}
-                  </h3>
-                  <p className="mt-3 max-w-2xl text-[15px] text-charcoal/70 leading-relaxed text-pretty">
-                    {b.description}
-                  </p>
+      {/* Numbered operations */}
+      <section className="border-t border-border bg-background">
+        <div className="container-page">
+          {steps.map((s) => (
+            <div
+              key={s.num}
+              className="grid gap-6 border-b border-border py-12 md:grid-cols-12 md:gap-10 md:py-16"
+            >
+              <div className="md:col-span-3">
+                <span className="font-serif text-3xl text-accent-deep/70">{s.num}</span>
+                <span className="mt-2 block h-px w-8 bg-accent/50" />
+              </div>
+              <div className="md:col-span-9">
+                <h2 className="h3 text-primary">{s.title}</h2>
+                <p className="mt-3 max-w-[64ch] text-[16px] leading-[1.6] text-ink/75">
+                  {s.body}
+                </p>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {s.chips.map((chip) => (
+                    <div
+                      key={chip}
+                      className="flex items-start gap-2.5 rounded-sm border border-border bg-surface px-4 py-3 text-[0.86rem] leading-[1.4] text-ink/75"
+                    >
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      <span>{chip}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-12 rounded-2xl border border-charcoal/10 bg-white p-7 sm:p-9">
-            <p className="eyebrow">Important to know</p>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {[
-                "Property management is a separate engagement",
-                "Management fees are billed by the PM partner",
-                "Investors are not required to use any single partner",
-                "STRATA's value is alignment and coordination",
-              ].map((line) => (
-                <li
-                  key={line}
-                  className="flex items-start gap-3 text-sm text-charcoal/80"
-                >
-                  <span
-                    className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold"
-                    aria-hidden
-                  />
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <CTASection
-        eyebrow="Get Started"
-        headline="One investor outcome."
-        italicTail="one coordinated team"
-        buttonText="Book a Strategy Call"
-        buttonHref="/contact"
-      />
+      {/* CTA */}
+      <section className="bg-cream">
+        <div className="container-page section-pad">
+          <div className="mx-auto max-w-[62ch]">
+            <h2 className="h2 max-w-[24ch]">
+              A pro forma is a hypothesis. Operations is the experiment.
+            </h2>
+            <p className="mt-6 text-[16px] leading-[1.6] text-ink/75 md:text-[17px]">
+              Whether you&rsquo;re launching a new unit or improving an existing
+              one, send us the property. We&rsquo;ll review the market position,
+              operating gaps, and recommend a launch plan.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-5">
+              <Link href="/contact" className="cta-primary">
+                Send a Property
+              </Link>
+              <Link
+                href="/#sample-underwrite"
+                className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-primary"
+              >
+                See the Underwrite &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
