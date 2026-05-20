@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/motion";
 export const metadata: Metadata = {
   title: "Advisory | Deal Underwriting Before You Buy",
   description:
-    "STRATA Advisory reviews the deal before capital is committed — deal economics, the tax angle, and a clear recommendation to buy, renegotiate, or walk away.",
+    "STRATA Advisory reviews the deal before capital is committed: deal economics, the tax angle, and a clear recommendation to buy, renegotiate, or walk away.",
 };
 
 const summary: [string, string, ("plain" | "bold" | "stress")?][] = [

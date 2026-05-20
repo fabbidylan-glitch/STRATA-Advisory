@@ -265,7 +265,7 @@ export default function HomePage() {
                   <PfRow label="NOI" base="$73,890" stress="$50,455" />
                   <PfRow label="Cash-on-Cash Return" base="13.7%" stress="8.9%" bold />
                   <PfRow label="Est. 1st-Yr Depreciation" base="$221,300" stress="$221,300" context />
-                  <PfRow label="Est. Tax Benefit Range" base="$84,000–$99,500" stress="$84,000–$99,500" context />
+                  <PfRow label="Est. Tax Benefit Range" base="$84,000 to $99,500" stress="$84,000 to $99,500" context />
                 </div>
               </div>
               <div className="mt-5 grid grid-cols-[auto_1fr] gap-4 rounded-md border border-critical/30 bg-critical/[0.08] px-5 py-4">
@@ -369,7 +369,7 @@ export default function HomePage() {
                 <TaxRow label="Estimated depreciable basis" value="$731,000" dim />
                 <TaxRow label="Estimated 1st-year depreciation" value="$221,300" />
                 <TaxRow label="Estimated combined tax rate" value="42.4%" dim />
-                <TaxRow label="Estimated tax benefit range" value="$84,000–$99,500" highlight />
+                <TaxRow label="Estimated tax benefit range" value="$84,000 to $99,500" highlight />
               </dl>
               <p className="mt-6 text-[13px] leading-[1.5] text-background/65">
                 Illustrative only. Actual results depend on the property,
@@ -470,7 +470,7 @@ export default function HomePage() {
             <div className="mt-6 grid gap-8 sm:grid-cols-3 sm:gap-6">
               {comps.map((c) => (
                 <div key={c.name}>
-                  <CompImage src={c.img} alt={`${c.name} — illustrative market comp`} />
+                  <CompImage src={c.img} alt={`${c.name}, illustrative market comp`} />
                   <p className="mt-4 text-[16px] font-semibold text-primary">{c.name}</p>
                   <p className="mt-1 text-[14px] leading-[1.55] text-ink/65">{c.body}</p>
                 </div>

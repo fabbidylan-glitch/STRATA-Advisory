@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/motion";
 export const metadata: Metadata = {
   title: "Tax Strategy | STR Cost Segregation & Depreciation",
   description:
-    "STR tax strategy starts before closing — material participation, cost segregation, bonus depreciation, and structure, modeled before the property is purchased.",
+    "STR tax strategy starts before closing. Material participation, cost segregation, bonus depreciation, and structure, modeled before the property is purchased.",
 };
 
 const scenario: [string, string][] = [

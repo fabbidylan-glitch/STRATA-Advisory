@@ -29,7 +29,7 @@ export default function ContactPage() {
                   What to expect
                 </p>
                 <p className="mt-2 max-w-[44ch] text-[0.92rem] leading-[1.55] text-ink/70">
-                  A 25&ndash;30 minute call to review your goals, tax profile,
+                  A 25 to 30 minute call to review your goals, tax profile,
                   target market, and any property you&rsquo;re evaluating.
                   Focused conversation. No pitch.
                 </p>
@@ -67,7 +67,7 @@ export default function ContactPage() {
             </div>
           </FadeIn>
 
-          {/* Right — form */}
+          {/* Right: form */}
           <FadeIn delay={0.12} className="md:col-span-7">
             <ContactForm />
           </FadeIn>

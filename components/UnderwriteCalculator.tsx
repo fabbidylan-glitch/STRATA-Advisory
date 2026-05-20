@@ -109,8 +109,8 @@ export function UnderwriteCalculator() {
             </div>
           </dl>
           <p className="mt-5 text-[12px] leading-[1.5] text-stone">
-            Reusable model based on 37% opex, 7.5% interest, ~30% first-year
-            depreciation. Illustrative teaching tool, not an underwrite.
+            Built on a 37% expense ratio, 7.5% interest, and roughly 30%
+            first-year depreciation. A teaching tool, not a real underwrite.
           </p>
         </div>
       </div>

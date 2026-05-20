@@ -3,18 +3,18 @@
 import { useState } from "react";
 
 const interestedIn = [
-  "Buying — under contract",
-  "Buying — still searching",
-  "Already own — need operations",
+  "Buying, under contract",
+  "Buying, still searching",
+  "Already own, need operations",
   "Tax strategy review",
   "Not sure yet",
 ];
 
 const priceRanges = [
   "Under $500K",
-  "$500K – $750K",
-  "$750K – $1M",
-  "$1M – $1.5M",
+  "$500K to $750K",
+  "$750K to $1M",
+  "$1M to $1.5M",
   "$1.5M+",
 ];
 
@@ -44,7 +44,7 @@ export function ContactForm() {
         <p className={labelCls} aria-live="polite">
           Received
         </p>
-        <h3 className="h3 mt-3 text-primary">Thank you — we have your property.</h3>
+        <h3 className="h3 mt-3 text-primary">Thank you. We have your property.</h3>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/75">
           A STRATA advisor will review your submission and follow up within one
           business day to schedule a strategy call.
